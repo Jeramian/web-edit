@@ -1,0 +1,61 @@
+.navi1
+{
+	width: 1170px;
+	height: 40px;
+	line-height: 1.5;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: black;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 10px;
+}
+.navi1 li
+{
+	display: inline;
+	color: black;
+}
+.navi1 li a
+{
+	text-decoration: none;
+	color: white;
+}
+.navi1 li a:hover
+{
+	color: red;
+}
+.addMenu
+{
+	width: 1170px;
+	height: 53px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: black;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 10px;
+	text-align: center;
+}
+.editor
+{
+	height: auto;
+	width: auto;
+}
+.createdDiv
+{
+	height: 25px;
+	width: 1000px;
+	border: 2px solid #cdcdcd;
+}
+.styleMenu
+{
+	width: 1170px;
+	height: 53px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: black;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 10px;
+	text-align: center;
+}
