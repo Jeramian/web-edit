@@ -99,7 +99,7 @@ function addADiv()
 		$('.createdDiv').resizable();
 		
 		$('.createdDiv').dblclick(function() {
-		   $('.createdDiv').remove(); 
+		   $('.createdDiv').off(); 
 		});
 	});
 }
