@@ -8,6 +8,8 @@ NEEDS:
 	*set divs ID's !IMPORTANT! <note> Use a for loop? and the ID being used for i? </note>
 	*menu bar functionality
 	*option to center, left, and right align text and Divs <note> Create a context menu element when over div or text that allows you to style </note>
+	*create script, allows side-bar menues to float with the user as scrolling occurs
+	*Disable resize after resize <note> When resize beings, create a button (ex. Done), when the user click button, resize option is eliminated </note>
 
 BUGGS:
 	*cannot drag images
@@ -44,13 +46,26 @@ var editorSpace = document.getElementById('editorArea');
 //style menu
 var textColor = document.getElementById('style1');
 
+//edit area
+var makeEditsArea = document.getElementById('editArea');
+
 //global variables
 var paragraph;
 var editorSpace;
 
+function divDimeBox()
+{
+	makeEditsArea = document.getElementById('editArea');
+	var input = document.createElement('input');
+	input.setAttribute('type', 'text');
+	input.setAttribute('id', 'divWidth');
+
+	makeEditsArea.appendChild(input);
+}
+
 function addADiv()
 {
-	var editorSpace = document.getElementById('editorArea');
+	editorSpace = document.getElementById('editorArea');
 	var div = document.createElement('div');
 	div.setAttribute('class', 'createdDiv');
 	
@@ -86,15 +101,12 @@ function addADiv()
 
 	editorSpace.appendChild(div);
 	$(".createdDiv").draggable();
-	$('.createdDiv').resizable();
-	
-	//WORK IN PROGRESS\\
+
 	$(document).ready(function() {
 		$('.createdDiv').contextmenu(function() {
-			
-		});	
+			divDimeBox();
+		});
 	});
-	
 }
 
 function addAPara()
