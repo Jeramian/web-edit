@@ -9,7 +9,9 @@ NEEDS:
 	*menu bar functionality
 	*option to center, left, and right align text and Divs <note> Create a context menu element when over div or text that allows you to style </note>
 	*create script, allows side-bar menues to float with the user as scrolling occurs
-	*Disable resize after resize <note> When resize beings, create a button (ex. Done), when the user click button, resize option is eliminated </note>
+	*Set functionality for div resize tool box
+	*Create logic for div resize tool box
+	*Create closure for div resize tool box
 
 BUGGS:
 	*cannot drag images
@@ -57,10 +59,27 @@ function divDimeBox()
 {
 	makeEditsArea = document.getElementById('editArea');
 	var input = document.createElement('input');
+	var label1 = document.createElement('p');
+	var label1Txt = document.createTextNode('Div width:');
+	label1.appendChild(label1Txt);
+	var label2 = document.createElement('p');
+	var label2Txt = document.createTextNode('Div height:');
+	label2.appendChild(label2Txt);
+	var input2 = document.createElement('input');
+	var doneButton = document.createElement('button');
+	input2.setAttribute('type', 'text');
+	input2.setAttribute('id', 'divHeight');
 	input.setAttribute('type', 'text');
-	input.setAttribute('id', 'divWidth');
+	input.setAttribute('id',  'divWidth');
+	doneButton.setAttribute('class', 'small button');
+	doneButton.setAttribute('id', 'doneDivDime');
+	doneButton.innerHTML = 'Done';
 
+	makeEditsArea.appendChild(label1);
 	makeEditsArea.appendChild(input);
+	makeEditsArea.appendChild(label2);
+	makeEditsArea.appendChild(input2);
+	makeEditsArea.appendChild(doneButton);
 }
 
 function addADiv()
