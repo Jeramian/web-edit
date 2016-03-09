@@ -56,34 +56,6 @@ var paragraph;
 var editorSpace;
 var div;
 
-function divDimeBox()
-{
-	makeEditsArea = document.getElementById('editArea');
-	var input = document.createElement('input');
-	var label1 = document.createElement('p');
-	var label1Txt = document.createTextNode('Div width:');
-	label1.appendChild(label1Txt);
-	var label2 = document.createElement('p');
-	var label2Txt = document.createTextNode('Div height:');
-	label2.appendChild(label2Txt);
-	var input2 = document.createElement('input');
-	var doneButton = document.createElement('button');
-	input2.setAttribute('type', 'text');
-	input2.setAttribute('id', 'divHeight');
-	input.setAttribute('type', 'text');
-	input.setAttribute('id',  'divWidth');
-	doneButton.setAttribute('class', 'small button');
-	doneButton.setAttribute('id', 'doneDivDime');
-	doneButton.setAttribute('onclick', 'setDivAtt');
-	doneButton.innerHTML = 'Done';
-
-	makeEditsArea.appendChild(label1);
-	makeEditsArea.appendChild(input);
-	makeEditsArea.appendChild(label2);
-	makeEditsArea.appendChild(input2);
-	makeEditsArea.appendChild(doneButton);
-}
-
 function addADiv()
 {
 	editorSpace = document.getElementById('editorArea');
@@ -122,29 +94,15 @@ function addADiv()
 
 	editorSpace.appendChild(div);
 	$(".createdDiv").draggable();
-
+	$('.createdDiv').resizable();
+	
+	
+	//WORK IN PROGRESS\\
 	$(document).ready(function() {
 		$('.createdDiv').contextmenu(function() {
-			divDimeBox();
+			$('createdDiv').remove()
 		});
 	});
-}
-
-function setDivAtt()
-{
-	//WORK IN PROGRESS\\
-	var setWidth = document.getElementById('divWidth').value;
-	var setHeight = document.getElementById('divHeight').value;
-	
-	if(setWidth > 0 && setHeight > 0)
-	{
-		div.setAttribute('style', 'width:', setWidth, ';' );
-		div.setAttribute('style', 'height', setHeight, ';');
-	}
-	else
-	{
-		broken();
-	}
 }
 
 function addAPara()
