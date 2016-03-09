@@ -54,6 +54,7 @@ var makeEditsArea = document.getElementById('editArea');
 //global variables
 var paragraph;
 var editorSpace;
+var div;
 
 function divDimeBox()
 {
@@ -73,6 +74,7 @@ function divDimeBox()
 	input.setAttribute('id',  'divWidth');
 	doneButton.setAttribute('class', 'small button');
 	doneButton.setAttribute('id', 'doneDivDime');
+	doneButton.setAttribute('onclick', 'setDivAtt');
 	doneButton.innerHTML = 'Done';
 
 	makeEditsArea.appendChild(label1);
@@ -85,7 +87,7 @@ function divDimeBox()
 function addADiv()
 {
 	editorSpace = document.getElementById('editorArea');
-	var div = document.createElement('div');
+	div = document.createElement('div');
 	div.setAttribute('class', 'createdDiv');
 	
 	var divColor = window.prompt('Please enter the divs background color');
@@ -126,7 +128,10 @@ function addADiv()
 			divDimeBox();
 		});
 	});
-	
+}
+
+function setDivAtt()
+{
 	//WORK IN PROGRESS\\
 	var setWidth = document.getElementById('divWidth').value;
 	var setHeight = document.getElementById('divHeight').value;
