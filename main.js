@@ -8,7 +8,7 @@ NEEDS:
 	*set divs ID's !IMPORTANT! <note> Use a for loop? and the ID being used for i? </note>
 	*menu bar functionality
 	*option to center, left, and right align text and Divs <note> Create a context menu element when over div or text that allows you to style </note>
-	*create script, allows side-bar menues to float with the user as scrolling occurs
+	*create script, allows side-bar menues to float with the user as scrolling occurs !IMPORTANT!
 	*Set functionality for div resize tool box
 	*Create logic for div resize tool box
 	*Create closure for div resize tool box
@@ -126,6 +126,8 @@ function addADiv()
 			divDimeBox();
 		});
 	});
+	
+	
 }
 
 function addAPara()
