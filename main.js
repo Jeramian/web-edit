@@ -127,7 +127,14 @@ function addADiv()
 		});
 	});
 	
+	var setWidth = document.getElementById('divWidth').value;
+	var setHeight = document.getElementById('divHeight').value;
 	
+	if(setWidth > 0 && setHeight > 0)
+	{
+		div.setAttribute('style', 'width:', setWidth, ';' );
+		div.setAttribute('style', 'height', setHeight, ';');
+	}
 }
 
 function addAPara()
