@@ -127,6 +127,7 @@ function addADiv()
 		});
 	});
 	
+	//WORK IN PROGRESS\\
 	var setWidth = document.getElementById('divWidth').value;
 	var setHeight = document.getElementById('divHeight').value;
 	
