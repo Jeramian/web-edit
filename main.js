@@ -136,6 +136,10 @@ function addADiv()
 		div.setAttribute('style', 'width:', setWidth, ';' );
 		div.setAttribute('style', 'height', setHeight, ';');
 	}
+	else
+	{
+		broken();
+	}
 }
 
 function addAPara()
