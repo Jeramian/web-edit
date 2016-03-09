@@ -93,14 +93,13 @@ function addADiv()
 	}
 
 	editorSpace.appendChild(div);
-	$(".createdDiv").draggable();
-	$('.createdDiv').resizable();
 	
-	
-	//WORK IN PROGRESS\\
-	$(document).ready(function() {
-		$('.createdDiv').contextmenu(function() {
-			$('createdDiv').remove()
+	$('.createdDiv').dblclick(function() {
+		$(".createdDiv").draggable();
+		$('.createdDiv').resizable();
+		
+		$('.createdDiv').dblclick(function() {
+		   $('.createdDiv').remove(); 
 		});
 	});
 }
