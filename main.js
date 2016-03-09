@@ -8,13 +8,11 @@ NEEDS:
 	*set divs ID's !IMPORTANT! <note> Use a for loop? and the ID being used for i? </note>
 	*menu bar functionality
 	*option to center, left, and right align text and Divs <note> Create a context menu element when over div or text that allows you to style </note>
-	*create script, allows side-bar menues to float with the user as scrolling occurs !IMPORTANT!
-	*Set functionality for div resize tool box
-	*Create logic for div resize tool box
-	*Create closure for div resize tool box
+	*add click active/deactivate resize to all elements
 
 BUGGS:
 	*cannot drag images
+	*delete button goes not show after div excedes a unknown size
 
 */
 
@@ -59,8 +57,12 @@ var div;
 function addADiv()
 {
 	editorSpace = document.getElementById('editorArea');
+	var deleteButton = document.createElement('button');
+	deleteButton.innerHTML = 'Delete element';
 	div = document.createElement('div');
 	div.setAttribute('class', 'createdDiv');
+	deleteButton.setAttribute('id', 'deleter');
+	deleteButton.setAttribute('class', 'small button');
 	
 	var divColor = window.prompt('Please enter the divs background color');
 	if(divColor == "white")
@@ -89,17 +91,30 @@ function addADiv()
 	}
 	else
 	{
-		broken();
+		div.setAttribute('style', 'background-color:white;');
 	}
 
 	editorSpace.appendChild(div);
+	editorSpace.appendChild(deleteButton);
+
+
+	//WORK IN PROGRESS\\
+	$('#deleter').hide();
 	
-	$('.createdDiv').dblclick(function() {
+	$('.createdDiv').click(function() {
 		$(".createdDiv").draggable();
 		$('.createdDiv').resizable();
 		
 		$('.createdDiv').dblclick(function() {
 		   $('.createdDiv').off(); 
+		});
+	});
+
+	$('.createdDiv').contextmenu(function() {
+		$('#deleter').show();
+		$('#deleter').click(function() {
+			$('.createdDiv').remove();
+			$('#deleter').remove();
 		});
 	});
 }
@@ -133,7 +148,7 @@ function addAPara()
 	}
 	else
 	{
-		broken();
+		paragraph.setAttribute('style', 'color:black;');
 	}
 	
 
@@ -177,7 +192,7 @@ function addAHeading()
 	}
 	else
 	{
-		broken();
+		heading1.setAttribute('style', 'color:black');
 	}
 
 	editorSpace.appendChild(heading1);
@@ -220,7 +235,7 @@ function addAHeading2()
 	}
 	else
 	{
-		broken();
+		heading2.setAttribute('style', 'color:black');
 	}
 
 	editorSpace.appendChild(heading2);
@@ -263,7 +278,7 @@ function addAHeading3()
 	}
 	else
 	{
-		broken();
+		heading3.setAttribute('style', 'color:black');
 	}
 
 	editorSpace.appendChild(heading3);
@@ -306,7 +321,7 @@ function addAHeading4()
 	}
 	else
 	{
-		broken();
+		heading4.setAttribute('style', 'color:black');
 	}
 
 	editorSpace.appendChild(heading4);
