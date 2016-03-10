@@ -12,7 +12,6 @@ NEEDS:
 
 BUGGS:
 	*cannot drag images
-	*delete button goes not show after div excedes a unknown size
 
 */
 
@@ -53,11 +52,13 @@ var makeEditsArea = document.getElementById('editArea');
 var paragraph;
 var editorSpace;
 var div;
+var deleteButton;
+
 
 function addADiv()
 {
 	editorSpace = document.getElementById('editorArea');
-	var deleteButton = document.createElement('button');
+	deleteButton = document.createElement('button');
 	deleteButton.innerHTML = 'Delete element';
 	div = document.createElement('div');
 	div.setAttribute('class', 'createdDiv');
@@ -97,17 +98,11 @@ function addADiv()
 	editorSpace.appendChild(div);
 	editorSpace.appendChild(deleteButton);
 
-
-	//WORK IN PROGRESS\\
 	$('#deleter').hide();
 	
 	$('.createdDiv').click(function() {
 		$(".createdDiv").draggable();
 		$('.createdDiv').resizable();
-		
-		$('.createdDiv').dblclick(function() {
-		   $('.createdDiv').off(); 
-		});
 	});
 
 	$('.createdDiv').contextmenu(function() {
@@ -116,6 +111,10 @@ function addADiv()
 			$('.createdDiv').remove();
 			$('#deleter').remove();
 		});
+
+		$('.createdDiv').dblclick(function() {
+		   $('.createdDiv').off(); 
+		});
 	});
 }
 
@@ -123,10 +122,14 @@ function addAPara()
 {
 	editorSpace = document.getElementById('editorArea');
 	paragraph =  document.createElement('p');
+	deleteButton = document.createElement('button');
+	deleteButton.innerHTML = 'Delete element';
 	var textForPara = window.prompt('Please enter text');
 	var paraNode = document.createTextNode(textForPara);
 	paragraph.appendChild(paraNode);
 	paragraph.setAttribute('id', 'regPara');
+	deleteButton.setAttribute('id', 'deleter');
+	deleteButton.setAttribute('class', 'small button');
 	
 	var newColor = window.prompt('Please enter a color value');
 	if(newColor == "white")
@@ -151,9 +154,26 @@ function addAPara()
 		paragraph.setAttribute('style', 'color:black;');
 	}
 	
-
 	editorSpace.appendChild(paragraph);
-	$('#regPara').draggable();
+	editorSpace.appendChild(deleteButton);
+
+	$('#deleter').hide();
+
+	$('#regPara').click(function() {
+		$('#regPara').draggable();
+	});
+
+
+	$('#regPara').contextmenu(function() {
+		$('#deleter').show();
+		$('#deleter').click(function() {
+			$('#regPara').remove();
+			$('#deleter').remove();
+
+		$('.createdDiv').dblclick(function() {
+		   $('.createdDiv').off(); 
+		});
+	});
 }
 
 function addAHeading()
