@@ -4,6 +4,12 @@
 
 create a simple WYSIWYG editor
 
+NOTES: 
+	1.MAINTAIN CODE EDQ, when the code is complete, it should be beautiful, as well as the final product functional to the needs of the user.
+	2.Look into simplier jquery and functions, try to compress as much as possible, save the user some loding time would ya.
+	3.Useablility and functionality go hand in hand!!
+	4.Lines 108-127 clean up, there is also buggs in these lines.
+
 NEEDS:
 	*set divs ID's !IMPORTANT! <note> Use a for loop? and the ID being used for i? </note>
 	*menu bar functionality
