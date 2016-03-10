@@ -12,7 +12,7 @@ NEEDS:
 
 BUGGS:
 	*cannot drag images
-	*All elements no longer become STUCK
+	*delete button shows when you add a second element to the editor.
 
 */
 
@@ -183,10 +183,14 @@ function addAHeading()
 {
 	editorSpace = document.getElementById('editorArea');
 	var heading1 = document.createElement('h1');
+	deleteButton = document.createElement('button');
+	deleteButton.innerHTML = 'Delete element';
 	var textForHeading1 = window.prompt('Please enter your heading');
 	var headNode = document.createTextNode(textForHeading1);
 	heading1.appendChild(headNode);
 	heading1.setAttribute('class', 'heading1');
+	deleteButton.setAttribute('id', 'deleter');
+	deleteButton.setAttribute('class', 'small button');
 	
 	var heading1Color = window.prompt('Please enter the heading color');
 	if(heading1Color == "white")
@@ -219,17 +223,41 @@ function addAHeading()
 	}
 
 	editorSpace.appendChild(heading1);
-	$('.heading1').draggable();
+	editorSpace.appendChild(deleteButton);
+
+	$('#deleter').hide();
+
+	$('.heading1').click(function() {
+		$('.heading1').draggable();
+	});
+
+	$('.heading1').contextmenu(function() {
+		$('#deleter').show();
+		
+		$('#deleter').click(function() {
+			$('.heading1').remove();
+			$('#deleter').remove();
+		});
+	});
+
+	$('.heading1').dblclick(function() {
+		   $('#regPara').off(); 
+	});
+
 }
 
 function addAHeading2()
 {
 	editorSpace = document.getElementById('editorArea');
 	var heading2 = document.createElement('h2');
+	deleteButton = document.createElement('button');
+	deleteButton.innerHTML = 'Delete element';
 	var textForHeading2 = window.prompt('Please enter your heading');
 	var head2Node = document.createTextNode(textForHeading2);
 	heading2.appendChild(head2Node);
 	heading2.setAttribute('class', 'heading2');
+	deleteButton.setAttribute('id', 'deleter');
+	deleteButton.setAttribute('class', 'small button');
 	
 	var heading2Color = window.prompt('Please enter the heading color');
 	if(heading2Color == "white")
@@ -262,17 +290,27 @@ function addAHeading2()
 	}
 
 	editorSpace.appendChild(heading2);
-	$('.heading2').draggable();
+	editorSpace.appendChild(deleteButton);
+
+	$('#deleter').hide();
+
+	$('.heading2').click(function() {
+		$('.heading2').draggable();
+	});
 }
 
 function addAHeading3()
 {
 	editorSpace = document.getElementById('editorArea');
 	var heading3 = document.createElement('h3');
+	deleteButton = document.createElement('button');
+	deleteButton.innerHTML = 'Delete element';
 	var textForHeading3 = window.prompt('Please enter your heading');
 	var head3Node = document.createTextNode(textForHeading3);
 	heading3.appendChild(head3Node);
 	heading3.setAttribute('class', 'heading3');
+	deleteButton.setAttribute('id', 'deleter');
+	deleteButton.setAttribute('class', 'small button');
 	
 	var heading3Color = window.prompt('Please enter the heading color');
 	if(heading3Color == "white")
@@ -305,17 +343,27 @@ function addAHeading3()
 	}
 
 	editorSpace.appendChild(heading3);
-	$('.heading3').draggable();
+	editorSpace.appendChild(deleteButton);
+
+	$('#deleter').hide();
+
+	$('.heading3').click(function() {
+		$('.heading3').draggable();
+	});
 }
 
 function addAHeading4()
 {
 	editorSpace = document.getElementById('editorArea');
 	var heading4 = document.createElement('h4');
+	deleteButton = document.createElement('button');
+	deleteButton.innerHTML = 'Delete element';
 	var textForHeading4 = window.prompt('Please enter your heading');
 	var head4Node = document.createTextNode(textForHeading4);
 	heading4.appendChild(head4Node);
 	heading4.setAttribute('class', 'heading4');
+	deleteButton.setAttribute('id', 'deleter');
+	deleteButton.setAttribute('class', 'small button');
 	
 	var heading4Color = window.prompt('Please enter the heading color');
 	if(heading4Color == "white")
@@ -348,18 +396,34 @@ function addAHeading4()
 	}
 
 	editorSpace.appendChild(heading4);
-	$('.heading4').draggable();
+	editorSpace.appendChild(deleteButton);
+
+	$('#deleter').hide();
+
+	$('.heading4').click(function() {
+		$('.heading4').draggable();
+	});
 }
 
 function addAImage()
 {
 	editorSpace = document.getElementById('editorArea');
 	var image = document.createElement('img');
+	deleteButton = document.createElement('button');
+	deleteButton.innerHTML = 'Delete element';
 	var imageURL = window.prompt('Please enter the images url or path');
 	image.setAttribute('src', imageURL);
 	image.setAttribute('class', 'image1');
+	deleteButton.setAttribute('id', 'deleter');
+	deleteButton.setAttribute('class', 'small button');
 
 	editorSpace.appendChild(image);
-	$('.image1').draggable();
-	$('.image1').resizable();
+	editorSpace.appendChild(deleteButton);
+
+	$('#deleter').hide();
+
+	$('.image1').click(function() {
+		$('.image1').draggable();
+		$('.image1').resizable();
+	});
 }
