@@ -113,11 +113,11 @@ function addADiv()
 			$('.createdDiv').remove();
 			$('#deleter').remove();
 		});
+	});
 
-		$('.createdDiv').dblclick(function() {
+	$('.createdDiv').dblclick(function() {
 		   $('.createdDiv').off(); 
 		});
-	});
 }
 
 function addAPara()
@@ -172,11 +172,11 @@ function addAPara()
 			$('#regPara').remove();
 			$('#deleter').remove();
 		});
-		
-		$('#regPara').dblclick(function() {
+	});
+
+	$('#regPara').dblclick(function() {
 		   $('#regPara').off(); 
 		});
-	});
 }
 
 function addAHeading()
