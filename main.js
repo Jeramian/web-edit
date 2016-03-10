@@ -12,6 +12,7 @@ NEEDS:
 
 BUGGS:
 	*cannot drag images
+	*All elements no longer become STUCK
 
 */
 
@@ -173,7 +174,7 @@ function addAPara()
 		});
 		
 		$('#regPara').dblclick(function() {
-		   $('.regPara').off(); 
+		   $('#regPara').off(); 
 		});
 	});
 }
