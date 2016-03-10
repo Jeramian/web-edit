@@ -13,6 +13,7 @@ NEEDS:
 BUGGS:
 	*cannot drag images
 	*delete button shows when you add a second element to the editor.
+	*cannot access delete button after div is STUCK.
 
 */
 
