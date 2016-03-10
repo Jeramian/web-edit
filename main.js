@@ -23,6 +23,10 @@ BUGGS:
 
 */
 
+(function () {
+    'use strict';
+}());
+
 function scriptWarn()
 {
 	console.log('This app requres that Javascript is active in your browser');
@@ -74,27 +78,27 @@ function addADiv()
 	deleteButton.setAttribute('class', 'small button');
 	
 	var divColor = window.prompt('Please enter the divs background color');
-	if(divColor == "white")
+	if(divColor === "white")
 	{
 		div.setAttribute('style', 'background-color:white;');
 	}
-	else if(divColor == "black")
+	else if(divColor === "black")
 	{
 		div.setAttribute('style', 'background-color:black');
 	}
-	else if(divColor == "red")
+	else if(divColor === "red")
 	{
 		div.setAttribute('style', 'background-color:red');
 	}
-	else if(divColor == "blue")
+	else if(divColor === "blue")
 	{
 		div.setAttribute('style', 'background-color:blue');
 	}
-	else if(divColor == "yellow")
+	else if(divColor === "yellow")
 	{
 		div.setAttribute('style', 'background-color:yellow');
 	}
-	else if(divColor == "green")
+	else if(divColor === "green")
 	{
 		div.setAttribute('style', 'background-color:green');
 	}
@@ -141,20 +145,20 @@ function addAPara()
 	deleteButton.setAttribute('class', 'small button');
 	
 	var newColor = window.prompt('Please enter a color value');
-	if(newColor == "white")
+	if(newColor === "white")
 	{
 		paragraph.setAttribute('style', 'color:white;');
 	}
-	else if(newColor == "black")
+	else if(newColor === "black")
 	{
 		paragraph.setAttribute('style', 'color:black;');
 	}
-	else if(newColor == "red")
+	else if(newColor === "red")
 	{
 		paragraph.setAttribute('style', 'color:red;');
 
 	}
-	else if(newColor == "blue")
+	else if(newColor === "blue")
 	{
 		paragraph.setAttribute('style', 'color:blue;');
 	}
@@ -204,23 +208,23 @@ function addAHeading()
 	{
 		heading1.setAttribute('style', 'background-color:white;');
 	}
-	else if(heading1Color == "black")
+	else if(heading1Color === "black")
 	{
 		heading1.setAttribute('style', 'color:black');
 	}
-	else if(heading1Color == "red")
+	else if(heading1Color === "red")
 	{
 		heading1.setAttribute('style', 'color:red');
 	}
-	else if(heading1Color == "blue")
+	else if(heading1Color === "blue")
 	{
 		heading1.setAttribute('style', 'color:blue');
 	}
-	else if(heading1Color == "yellow")
+	else if(heading1Color === "yellow")
 	{
 		heading1.setAttribute('style', 'color:yellow');
 	}
-	else if(heading1Color == "green")
+	else if(heading1Color === "green")
 	{
 		heading1.setAttribute('style', 'color:green');
 	}
@@ -271,23 +275,23 @@ function addAHeading2()
 	{
 		heading2.setAttribute('style', 'color:white;');
 	}
-	else if(heading2Color == "black")
+	else if(heading2Color === "black")
 	{
 		heading2.setAttribute('style', 'color:black');
 	}
-	else if(heading2Color == "red")
+	else if(heading2Color === "red")
 	{
 		heading2.setAttribute('style', 'color:red');
 	}
-	else if(heading2Color == "blue")
+	else if(heading2Color === "blue")
 	{
 		heading2.setAttribute('style', 'color:blue');
 	}
-	else if(heading2Color == "yellow")
+	else if(heading2Color === "yellow")
 	{
 		heading2.setAttribute('style', 'color:yellow');
 	}
-	else if(heading2Color == "green")
+	else if(heading2Color === "green")
 	{
 		heading2.setAttribute('style', 'color:green');
 	}
@@ -324,23 +328,23 @@ function addAHeading3()
 	{
 		heading3.setAttribute('style', 'color:white;');
 	}
-	else if(heading3Color == "black")
+	else if(heading3Color === "black")
 	{
 		heading3.setAttribute('style', 'color:black');
 	}
-	else if(heading3Color == "red")
+	else if(heading3Color === "red")
 	{
 		heading3.setAttribute('style', 'color:red');
 	}
-	else if(heading3Color == "blue")
+	else if(heading3Color === "blue")
 	{
 		heading3.setAttribute('style', 'color:blue');
 	}
-	else if(heading3Color == "yellow")
+	else if(heading3Color === "yellow")
 	{
 		heading3.setAttribute('style', 'color:yellow');
 	}
-	else if(heading3Color == "green")
+	else if(heading3Color === "green")
 	{
 		heading3.setAttribute('style', 'color:green');
 	}
@@ -373,27 +377,27 @@ function addAHeading4()
 	deleteButton.setAttribute('class', 'small button');
 	
 	var heading4Color = window.prompt('Please enter the heading color');
-	if(heading4Color == "white")
+	if(heading4Color === "white")
 	{
 		heading4.setAttribute('style', 'color:white;');
 	}
-	else if(heading4Color == "black")
+	else if(heading4Color === "black")
 	{
 		heading4.setAttribute('style', 'color:black');
 	}
-	else if(heading4Color == "red")
+	else if(heading4Color === "red")
 	{
 		heading4.setAttribute('style', 'color:red');
 	}
-	else if(heading4Color == "blue")
+	else if(heading4Color === "blue")
 	{
 		heading4.setAttribute('style', 'color:blue');
 	}
-	else if(heading4Color == "yellow")
+	else if(heading4Color === "yellow")
 	{
 		heading4.setAttribute('style', 'color:yellow');
 	}
-	else if(heading4Color == "green")
+	else if(heading4Color === "green")
 	{
 		heading4.setAttribute('style', 'color:green');
 	}
