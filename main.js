@@ -168,7 +168,7 @@ function addAPara()
 		$('#deleter').show();
 		$('#deleter').click(function() {
 			$('#regPara').remove();
-			$('#deleter').remove();
+			$('#dleeter').remove();
 
 		$('.createdDiv').dblclick(function() {
 		   $('.createdDiv').off(); 
