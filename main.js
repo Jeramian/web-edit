@@ -107,6 +107,7 @@ function addADiv()
 
 	$('.createdDiv').contextmenu(function() {
 		$('#deleter').show();
+		
 		$('#deleter').click(function() {
 			$('.createdDiv').remove();
 			$('#deleter').remove();
@@ -162,16 +163,17 @@ function addAPara()
 	$('#regPara').click(function() {
 		$('#regPara').draggable();
 	});
-
-
+	
 	$('#regPara').contextmenu(function() {
 		$('#deleter').show();
+		
 		$('#deleter').click(function() {
 			$('#regPara').remove();
-			$('#dleeter').remove();
-
-		$('.createdDiv').dblclick(function() {
-		   $('.createdDiv').off(); 
+			$('#deleter').remove();
+		});
+		
+		$('#regPara').dblclick(function() {
+		   $('.regPara').off(); 
 		});
 	});
 }
