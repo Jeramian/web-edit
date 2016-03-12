@@ -13,9 +13,11 @@ NOTES:
 NEEDS:
 	*menu bar functionality
 	*option to center, left, and right align text and Divs <note> Create a context menu element when over div or text that allows you to style </note>
+	*Layer box, allowing the user to lock, unlock, and delete layers.
 
 BUGGS:
 	*cannot drag images
+	*once element is locked into place, the element can no longer be moved.
 
 */
 
@@ -100,11 +102,13 @@ function addADiv()
 	$('.createdDiv').click(function() {
 		$(this).draggable();
 		$(this).resizable();
+		$(this).addClass('selected');
 	});
 
 	$('.createdDiv').dblclick(function() {
 		$(this).draggable('disable');
 		$(this).resizable('disable');
+		$(this).removeClass('selected');
 	});
 
 	$('.createdDiv').contextmenu(function() {

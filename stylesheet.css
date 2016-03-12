@@ -67,3 +67,7 @@
 {
 	text-align: center;
 }
+.selected
+{
+	border: 4px solid blue;
+}
