@@ -11,29 +11,14 @@ NOTES:
 	4.Lines 108-127 clean up, there is also buggs in these lines.
 
 NEEDS:
-	*set divs ID's !IMPORTANT! <note> Use a for loop? and the ID being used for i? </note>
 	*menu bar functionality
 	*option to center, left, and right align text and Divs <note> Create a context menu element when over div or text that allows you to style </note>
 	*add click active/deactivate resize to all elements
 
 BUGGS:
 	*cannot drag images
-	*delete button shows when you add a second element to the editor.
 
 */
-
-(function () {
-    'use strict';
-}());
-
-function divID()
-{
-	var id;
-	for(id = 0; id < 30; id++)
-	{
-		console.log(id);
-	}
-}
 
 function scriptWarn()
 {
@@ -78,12 +63,8 @@ var deleteButton;
 function addADiv()
 {
 	editorSpace = document.getElementById('editorArea');
-	deleteButton = document.createElement('button');
-	deleteButton.innerHTML = 'Delete element';
 	div = document.createElement('div');
 	div.setAttribute('class', 'createdDiv');
-	deleteButton.setAttribute('id', 'deleter');
-	deleteButton.setAttribute('class', 'small button');
 	
 	var divColor = window.prompt('Please enter the divs background color');
 	if(divColor === "white")
@@ -116,27 +97,19 @@ function addADiv()
 	}
 
 	editorSpace.appendChild(div);
-	editorSpace.appendChild(deleteButton);
 
-	$('#deleter').hide();
-	
 	$('.createdDiv').click(function() {
-		$(".createdDiv").draggable();
-		$('.createdDiv').resizable();
+		$(this).draggable();
+		$(this).resizable();
 	});
 
 	$('.createdDiv').dblclick(function() {
-		$(".createdDiv").draggable('disable');
-		$('.createdDiv').resizable('disable');
+		$(this).draggable('disable');
+		$(this).resizable('disable');
 	});
 
 	$('.createdDiv').contextmenu(function() {
-		$('#deleter').show();
-		
-		$('#deleter').click(function() {
-			$('.createdDiv').remove();
-			$('#deleter').remove();
-		});
+		$(this).remove();
 	});
 }
 
@@ -144,14 +117,10 @@ function addAPara()
 {
 	editorSpace = document.getElementById('editorArea');
 	paragraph =  document.createElement('p');
-	deleteButton = document.createElement('button');
-	deleteButton.innerHTML = 'Delete element';
 	var textForPara = window.prompt('Please enter text');
 	var paraNode = document.createTextNode(textForPara);
 	paragraph.appendChild(paraNode);
 	paragraph.setAttribute('id', 'regPara');
-	deleteButton.setAttribute('id', 'deleter');
-	deleteButton.setAttribute('class', 'small button');
 	
 	var newColor = window.prompt('Please enter a color value');
 	if(newColor === "white")
@@ -177,40 +146,28 @@ function addAPara()
 	}
 	
 	editorSpace.appendChild(paragraph);
-	editorSpace.appendChild(deleteButton);
-
-	$('#deleter').hide();
 
 	$('#regPara').click(function() {
-		$('#regPara').draggable();
-	});
-	
-	$('#regPara').contextmenu(function() {
-		$('#deleter').show();
-		
-		$('#deleter').click(function() {
-			$('#regPara').remove();
-			$('#deleter').remove();
-		});
+		$(this).draggable();
 	});
 
 	$('#regPara').dblclick(function() {
-		   $('#regPara').draggable('disable'); 
-		});
+		$(this).draggable('disable');
+	});
+
+	$('#regPara').contextmenu(function() {
+		$(this).remove();
+	});
 }
 
 function addAHeading()
 {
 	editorSpace = document.getElementById('editorArea');
 	var heading1 = document.createElement('h1');
-	deleteButton = document.createElement('button');
-	deleteButton.innerHTML = 'Delete element';
 	var textForHeading1 = window.prompt('Please enter your heading');
 	var headNode = document.createTextNode(textForHeading1);
 	heading1.appendChild(headNode);
 	heading1.setAttribute('class', 'heading1');
-	deleteButton.setAttribute('id', 'deleter');
-	deleteButton.setAttribute('class', 'small button');
 	
 	var heading1Color = window.prompt('Please enter the heading color');
 	if(heading1Color == "white")
@@ -243,25 +200,17 @@ function addAHeading()
 	}
 
 	editorSpace.appendChild(heading1);
-	editorSpace.appendChild(deleteButton);
-
-	$('#deleter').hide();
 
 	$('.heading1').click(function() {
-		$('.heading1').draggable();
-	});
-
-	$('.heading1').contextmenu(function() {
-		$('#deleter').show();
-		
-		$('#deleter').click(function() {
-			$('.heading1').remove();
-			$('#deleter').remove();
-		});
+		$(this).draggable();
 	});
 
 	$('.heading1').dblclick(function() {
-		   $('.heading1').draggable('disable'); 
+		$(this).draggable('disable');
+	});
+
+	$('.heading1').contextmenu(function() {
+		$(this).remove();
 	});
 
 }
@@ -270,14 +219,10 @@ function addAHeading2()
 {
 	editorSpace = document.getElementById('editorArea');
 	var heading2 = document.createElement('h2');
-	deleteButton = document.createElement('button');
-	deleteButton.innerHTML = 'Delete element';
 	var textForHeading2 = window.prompt('Please enter your heading');
 	var head2Node = document.createTextNode(textForHeading2);
 	heading2.appendChild(head2Node);
 	heading2.setAttribute('class', 'heading2');
-	deleteButton.setAttribute('id', 'deleter');
-	deleteButton.setAttribute('class', 'small button');
 	
 	var heading2Color = window.prompt('Please enter the heading color');
 	if(heading2Color == "white")
@@ -310,12 +255,17 @@ function addAHeading2()
 	}
 
 	editorSpace.appendChild(heading2);
-	editorSpace.appendChild(deleteButton);
-
-	$('#deleter').hide();
 
 	$('.heading2').click(function() {
-		$('.heading2').draggable();
+		$(this).draggable();
+	});
+
+	$('.heading2').dblclick(function() {
+		$(this).draggable('disable');
+	});
+
+	$('.heading2').contextmenu(function() {
+		$(this).remove();
 	});
 }
 
@@ -323,14 +273,10 @@ function addAHeading3()
 {
 	editorSpace = document.getElementById('editorArea');
 	var heading3 = document.createElement('h3');
-	deleteButton = document.createElement('button');
-	deleteButton.innerHTML = 'Delete element';
 	var textForHeading3 = window.prompt('Please enter your heading');
 	var head3Node = document.createTextNode(textForHeading3);
 	heading3.appendChild(head3Node);
 	heading3.setAttribute('class', 'heading3');
-	deleteButton.setAttribute('id', 'deleter');
-	deleteButton.setAttribute('class', 'small button');
 	
 	var heading3Color = window.prompt('Please enter the heading color');
 	if(heading3Color == "white")
@@ -363,12 +309,17 @@ function addAHeading3()
 	}
 
 	editorSpace.appendChild(heading3);
-	editorSpace.appendChild(deleteButton);
-
-	$('#deleter').hide();
 
 	$('.heading3').click(function() {
-		$('.heading3').draggable();
+		$(this).draggable();
+	});
+
+	$('.heading3').dblclick(function() {
+		$(this).draggable('disable');
+	});
+
+	$('.heading3').contextmenu(function() {
+		$(this).remove();
 	});
 }
 
@@ -376,14 +327,10 @@ function addAHeading4()
 {
 	editorSpace = document.getElementById('editorArea');
 	var heading4 = document.createElement('h4');
-	deleteButton = document.createElement('button');
-	deleteButton.innerHTML = 'Delete element';
 	var textForHeading4 = window.prompt('Please enter your heading');
 	var head4Node = document.createTextNode(textForHeading4);
 	heading4.appendChild(head4Node);
 	heading4.setAttribute('class', 'heading4');
-	deleteButton.setAttribute('id', 'deleter');
-	deleteButton.setAttribute('class', 'small button');
 	
 	var heading4Color = window.prompt('Please enter the heading color');
 	if(heading4Color === "white")
@@ -416,12 +363,17 @@ function addAHeading4()
 	}
 
 	editorSpace.appendChild(heading4);
-	editorSpace.appendChild(deleteButton);
-
-	$('#deleter').hide();
 
 	$('.heading4').click(function() {
-		$('.heading4').draggable();
+		$(this).draggable();
+	});
+
+	$('.heading4').dblclick(function() {
+		$(this).draggable('disable');
+	});
+
+	$('.heading4').contextmenu(function() {
+		$(this).remove();
 	});
 }
 
@@ -429,21 +381,23 @@ function addAImage()
 {
 	editorSpace = document.getElementById('editorArea');
 	var image = document.createElement('img');
-	deleteButton = document.createElement('button');
-	deleteButton.innerHTML = 'Delete element';
 	var imageURL = window.prompt('Please enter the images url or path');
 	image.setAttribute('src', imageURL);
 	image.setAttribute('class', 'image1');
-	deleteButton.setAttribute('id', 'deleter');
-	deleteButton.setAttribute('class', 'small button');
 
 	editorSpace.appendChild(image);
-	editorSpace.appendChild(deleteButton);
-
-	$('#deleter').hide();
 
 	$('.image1').click(function() {
-		$('.image1').draggable();
-		$('.image1').resizable();
+		$(this).draggable();
+		$(this).resizable();
+	});
+
+	$('.image1').dblclick(function() {
+		$(this).draggable('disable');
+		$(this).resizable('disable');
+	});
+
+	$('.image1').contextmenu(function() {
+		$(this).remove();
 	});
 }
