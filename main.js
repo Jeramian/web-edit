@@ -13,7 +13,6 @@ NOTES:
 NEEDS:
 	*menu bar functionality
 	*option to center, left, and right align text and Divs <note> Create a context menu element when over div or text that allows you to style </note>
-	*add click active/deactivate resize to all elements
 
 BUGGS:
 	*cannot drag images
@@ -172,7 +171,7 @@ function addAHeading()
 	var heading1Color = window.prompt('Please enter the heading color');
 	if(heading1Color == "white")
 	{
-		heading1.setAttribute('style', 'background-color:white;');
+		heading1.setAttribute('style', 'color:white;');
 	}
 	else if(heading1Color === "black")
 	{
