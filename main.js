@@ -19,7 +19,6 @@ NEEDS:
 BUGGS:
 	*cannot drag images
 	*delete button shows when you add a second element to the editor.
-	*cannot access delete button after div is STUCK.
 
 */
 
@@ -117,6 +116,11 @@ function addADiv()
 		$('.createdDiv').resizable();
 	});
 
+	$('.createdDiv').dblclick(function() {
+		$(".createdDiv").draggable('disable');
+		$('.createdDiv').resizable('disable');
+	});
+
 	$('.createdDiv').contextmenu(function() {
 		$('#deleter').show();
 		
@@ -125,10 +129,6 @@ function addADiv()
 			$('#deleter').remove();
 		});
 	});
-
-	$('.createdDiv').dblclick(function() {
-		   $('.createdDiv').off(); 
-		});
 }
 
 function addAPara()
@@ -186,7 +186,7 @@ function addAPara()
 	});
 
 	$('#regPara').dblclick(function() {
-		   $('#regPara').off(); 
+		   $('#regPara').draggable('disable'); 
 		});
 }
 
@@ -252,7 +252,7 @@ function addAHeading()
 	});
 
 	$('.heading1').dblclick(function() {
-		   $('#regPara').off(); 
+		   $('.heading1').draggable('disable'); 
 	});
 
 }
