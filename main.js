@@ -26,6 +26,15 @@ BUGGS:
     'use strict';
 }());
 
+function divID()
+{
+	var id;
+	for(id = 0; id < 30; id++)
+	{
+		console.log(id);
+	}
+}
+
 function scriptWarn()
 {
 	console.log('This app requres that Javascript is active in your browser');
