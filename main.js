@@ -417,5 +417,6 @@ function STUCK()
 function layerMenu()
 {
 	laymen = document.getElementById('layers');
-	document.createElement('div');
+	var layer = document.createElement('div');
+	layer.setAttribute('class', 'div');
 }
