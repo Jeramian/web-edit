@@ -66,6 +66,7 @@ function addADiv()
 	editorSpace = document.getElementById('editorArea');
 	div = document.createElement('div');
 	div.setAttribute('class', 'createdDiv');
+	div.setAttribute('id', 'activeDiv');
 	
 	var divColor = window.prompt('Please enter the divs background color');
 	if(divColor === "white")
@@ -114,6 +115,17 @@ function addADiv()
 	$('.createdDiv').contextmenu(function() {
 		$(this).remove();
 	});
+
+	laymen = document.getElementById('layers');
+
+	if($('#activeDiv').length > 0)
+	{
+		alert('it exists');
+	}
+	else
+	{
+		alert(error);
+	}
 }
 
 function addAPara()
@@ -412,11 +424,4 @@ function STUCK()
 	$('#lock').click(function() {
 		alert('Hello!');
 	});
-}
-
-function layerMenu()
-{
-	laymen = document.getElementById('layers');
-	var layer = document.createElement('div');
-	layer.setAttribute('class', 'div');
 }
