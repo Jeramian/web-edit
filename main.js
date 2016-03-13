@@ -404,3 +404,18 @@ function addAImage()
 		$(this).remove();
 	});
 }
+
+function STUCK()
+{
+	var lockBtn = document.getElementById('lock');
+
+	$('#lock').click(function() {
+		alert('Hello!');
+	});
+}
+
+function layerMenu()
+{
+	laymen = document.getElementById('layers');
+	document.createElement('div');
+}
