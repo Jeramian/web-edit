@@ -440,6 +440,11 @@ function changeLockImage()
 	});
 }
 
+function changeLockImage2()
+{
+	
+}
+
 function deleteThatElement()
 {
 	$('#trash').click(function() {
