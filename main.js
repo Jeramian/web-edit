@@ -425,7 +425,6 @@ function addAImage()
 	});
 }
 
-//!Bug! Lock button does not re-lock the elements
 function changeLockImage()
 {
 	$('#lock').click(function() {
