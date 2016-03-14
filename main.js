@@ -4,7 +4,7 @@
 
 create a simple WYSIWYG editor
 
-NOTES: 
+NOTES:
 	1.MAINTAIN CODE EDQ, when the code is complete, it should be beautiful, as well as the final product functional to the needs of the user.
 	2.Look into simplier jquery and functions, try to compress as much as possible, save the user some loding time would ya.
 	3.Useablility and functionality go hand in hand!!
@@ -68,7 +68,7 @@ function addADiv()
 	div = document.createElement('div');
 	div.setAttribute('class', 'createdDiv');
 	div.setAttribute('id', 'activeDiv');
-	
+
 	var divColor = window.prompt('Please enter the divs background color');
 	if(divColor === "white")
 	{
@@ -133,7 +133,7 @@ function addAPara()
 	var paraNode = document.createTextNode(textForPara);
 	paragraph.appendChild(paraNode);
 	paragraph.setAttribute('id', 'regPara');
-	
+
 	var newColor = window.prompt('Please enter a color value');
 	if(newColor === "white")
 	{
@@ -156,20 +156,31 @@ function addAPara()
 	{
 		paragraph.setAttribute('style', 'color:black;');
 	}
-	
+
 	editorSpace.appendChild(paragraph);
 
-	$('#regPara').click(function() {
-		$(this).draggable();
-	});
+	laymen = document.getElementById('layers');
+	var paraLayer = document.createElement('div');
+	var paraLock = document.createElement('img');
+	var paraDeleter = document.createElement('img');
+	paraDeleter.setAttribute('src', 'trash.png');
+	paraDeleter.setAttribute('id', 'trash');
+	paraLock.setAttribute('src', "locked.png");
+	paraLock.setAttribute('id', 'lock');
+	paraLayer.setAttribute('class', 'para');
+	paraLayer.appendChild(paraLock);
+	paraLayer.appendChild(paraDeleter);
 
-	$('#regPara').dblclick(function() {
-		$(this).draggable('disable');
-	});
-
-	$('#regPara').contextmenu(function() {
-		$(this).remove();
-	});
+	if($('#regPara').length > 0)
+	{
+		laymen.appendChild(paraLayer);
+		changeLockImage();
+		deleteThatElement();
+	}
+	else
+	{
+		alert(broken);
+	}
 }
 
 function addAHeading()
@@ -180,7 +191,7 @@ function addAHeading()
 	var headNode = document.createTextNode(textForHeading1);
 	heading1.appendChild(headNode);
 	heading1.setAttribute('class', 'heading1');
-	
+
 	var heading1Color = window.prompt('Please enter the heading color');
 	if(heading1Color == "white")
 	{
@@ -235,7 +246,7 @@ function addAHeading2()
 	var head2Node = document.createTextNode(textForHeading2);
 	heading2.appendChild(head2Node);
 	heading2.setAttribute('class', 'heading2');
-	
+
 	var heading2Color = window.prompt('Please enter the heading color');
 	if(heading2Color == "white")
 	{
@@ -289,7 +300,7 @@ function addAHeading3()
 	var head3Node = document.createTextNode(textForHeading3);
 	heading3.appendChild(head3Node);
 	heading3.setAttribute('class', 'heading3');
-	
+
 	var heading3Color = window.prompt('Please enter the heading color');
 	if(heading3Color == "white")
 	{
@@ -343,7 +354,7 @@ function addAHeading4()
 	var head4Node = document.createTextNode(textForHeading4);
 	heading4.appendChild(head4Node);
 	heading4.setAttribute('class', 'heading4');
-	
+
 	var heading4Color = window.prompt('Please enter the heading color');
 	if(heading4Color === "white")
 	{
