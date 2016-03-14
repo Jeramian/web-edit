@@ -442,7 +442,9 @@ function changeLockImage()
 
 function changeLockImage2()
 {
-	
+	$('#lock').toggle(function() {
+		
+	});
 }
 
 function deleteThatElement()
