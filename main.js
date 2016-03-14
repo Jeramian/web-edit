@@ -425,13 +425,13 @@ function addAImage()
 	});
 }
 
+//!Bug! Lock button does not re-lock the elements
 function changeLockImage()
 {
 	$('#lock').click(function() {
 		$(this).attr('src', "unlocked.png");
 		$('.createdDiv').draggable();
 		$('.createdDiv').resizable();
-		$('.createdDiv').attr('class', 'selected');
 	});
 
 	$('#lock').dblclick(function() {
