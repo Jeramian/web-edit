@@ -59,6 +59,7 @@ var paragraph;
 var editorSpace;
 var div;
 var deleteButton;
+var lockButton = document.getElementById('lock');
 
 
 function addADiv()
@@ -116,6 +117,7 @@ function addADiv()
 		$(this).remove();
 	});
 
+	/*
 	laymen = document.getElementById('layers');
 
 	if($('#activeDiv').length > 0)
@@ -126,6 +128,18 @@ function addADiv()
 	{
 		alert(error);
 	}
+	*/
+}
+
+function changeLockImage()
+{
+	$('#lock').click(function() {
+		$(this).attr('src', "unlocked.png");
+	});
+
+	$('#lock').dblclick(function() {
+		$(this).attr('src', "locked.png");
+	});
 }
 
 function addAPara()
@@ -414,14 +428,5 @@ function addAImage()
 
 	$('.image1').contextmenu(function() {
 		$(this).remove();
-	});
-}
-
-function STUCK()
-{
-	var lockBtn = document.getElementById('lock');
-
-	$('#lock').click(function() {
-		alert('Hello!');
 	});
 }
