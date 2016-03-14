@@ -104,15 +104,20 @@ function addADiv()
 	laymen = document.getElementById('layers');
 	var divLayer = document.createElement('div');
 	var divLock = document.createElement('img');
+	var divDeleter = document.createElement('img');
+	divDeleter.setAttribute('src', 'trash.png');
+	divDeleter.setAttribute('id', 'trash');
 	divLock.setAttribute('src', "locked.png");
 	divLock.setAttribute('id', 'lock');
 	divLayer.setAttribute('class', 'div');
 	divLayer.appendChild(divLock);
+	divLayer.appendChild(divDeleter);
 
 	if($('#activeDiv').length > 0)
 	{
 		laymen.appendChild(divLayer);
 		changeLockImage();
+		deleteThatElement();
 	}
 	else
 	{
@@ -422,5 +427,13 @@ function changeLockImage()
 		$(this).attr('src', "locked.png");
 		$('.createdDiv').draggable('disable');
 		$('.createdDiv').resizable('disable');
+	});
+}
+
+function deleteThatElement()
+{
+	$('#trash').click(function() {
+		$('.createdDiv').remove();
+		$('.div').remove();
 	});
 }
