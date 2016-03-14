@@ -101,45 +101,23 @@ function addADiv()
 
 	editorSpace.appendChild(div);
 
-	$('.createdDiv').click(function() {
-		$(this).draggable();
-		$(this).resizable();
-		$(this).addClass('selected');
-	});
-
-	$('.createdDiv').dblclick(function() {
-		$(this).draggable('disable');
-		$(this).resizable('disable');
-		$(this).removeClass('selected');
-	});
-
-	$('.createdDiv').contextmenu(function() {
-		$(this).remove();
-	});
-
-	/*
 	laymen = document.getElementById('layers');
+	var divLayer = document.createElement('div');
+	var divLock = document.createElement('img');
+	divLock.setAttribute('src', "locked.png");
+	divLock.setAttribute('id', 'lock');
+	divLayer.setAttribute('class', 'div');
+	divLayer.appendChild(divLock);
 
 	if($('#activeDiv').length > 0)
 	{
-		alert('it exists');
+		laymen.appendChild(divLayer);
+		changeLockImage();
 	}
 	else
 	{
-		alert(error);
+		alert(broken);
 	}
-	*/
-}
-
-function changeLockImage()
-{
-	$('#lock').click(function() {
-		$(this).attr('src', "unlocked.png");
-	});
-
-	$('#lock').dblclick(function() {
-		$(this).attr('src', "locked.png");
-	});
 }
 
 function addAPara()
@@ -428,5 +406,21 @@ function addAImage()
 
 	$('.image1').contextmenu(function() {
 		$(this).remove();
+	});
+}
+
+function changeLockImage()
+{
+	$('#lock').click(function() {
+		$(this).attr('src', "unlocked.png");
+		$('.createdDiv').draggable();
+		$('.createdDiv').resizable();
+		$('.createdDiv').attr('class', 'selected');
+	});
+
+	$('#lock').dblclick(function() {
+		$(this).attr('src', "locked.png");
+		$('.createdDiv').draggable('disable');
+		$('.createdDiv').resizable('disable');
 	});
 }
