@@ -440,11 +440,9 @@ function changeLockImage()
 	});
 }
 
-function changeLockImage2()
+function lockToggle()
 {
-	$('#lock').toggle(function() {
-		
-	});
+	
 }
 
 function deleteThatElement()
