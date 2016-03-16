@@ -117,6 +117,7 @@ function addADiv()
 	{
 		laymen.appendChild(divLayer);
 		changeLockImage();
+        //lockToggle();
 		deleteThatElement();
 	}
 	else
@@ -438,6 +439,13 @@ function changeLockImage()
 		$('.createdDiv').draggable('disable');
 		$('.createdDiv').resizable('disable');
 	});
+}
+
+function lockToggle()
+{
+    $('#lock').click(function() {
+        
+    });
 }
 
 function deleteThatElement()
