@@ -17,7 +17,7 @@ NEEDS:
 
 BUGGS:
 	*cannot drag images
-	*once element is locked into place, the element can no longer be moved.
+	*once element is locked into place, the element can no longer be moved. !IMPORTANT!
 
 */
 
@@ -443,8 +443,10 @@ function changeLockImage()
 
 function lockToggle()
 {
+	var src = document.getElementById('lock').attributes(); 
+    
     $('#lock').click(function() {
-        
+    	
     });
 }
 
