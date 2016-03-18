@@ -14,6 +14,7 @@ NEEDS:
 	*menu bar functionality
 	*option to center, left, and right align text and Divs <note> Create a context menu element when over div or text that allows you to style </note>
 	*Layer box, allowing the user to lock, unlock, and delete layers.
+	*Error messgaes.
 
 BUGGS:
 	*cannot drag images
@@ -21,15 +22,9 @@ BUGGS:
 
 */
 
-function scriptWarn()
-{
-	console.log('This app requres that Javascript is active in your browser');
-}
-
-function broken()
-{
-	alert('Oops! It seems something has gone wrong');
-}
+var errorCode1 = new Error('The page was not able to process your request');
+var errorCode2 = new Error('The selected item does not seem to exist');
+var errorCode3 = new Error('The entry given did not meet the requirments');
 
 //main navigation bar
 var menuOp1 = document.getElementById('menuop1');
