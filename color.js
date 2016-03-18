@@ -23,6 +23,6 @@ BUGGS:
 function colorBox()
 {
     var colorBoxButton = document.createElement('button');
-    colorBoxButton.innerHTML = 'Text color selection';
-    
+    var colorBtnText = colorBoxButton.innerHTML = 'Text color selection';
+    colorBoxButton.appendChild(colorBtnText);
 }
