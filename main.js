@@ -96,7 +96,7 @@ function addADiv()
 
 	editorSpace.appendChild(div);
 
-	laymen = document.getElementById('layers');
+	var laymen = document.getElementById('layers');
 	var divLayer = document.createElement('div');
 	var divLock = document.createElement('img');
 	var divDeleter = document.createElement('img');
@@ -117,7 +117,7 @@ function addADiv()
 	}
 	else
 	{
-		alert(broken);
+		throw errorCode2;
 	}
 }
 
@@ -155,7 +155,7 @@ function addAPara()
 
 	editorSpace.appendChild(paragraph);
 
-	laymen = document.getElementById('layers');
+	var laymen = document.getElementById('layers');
 	var paraLayer = document.createElement('div');
 	var paraLock = document.createElement('img');
 	var paraDeleter = document.createElement('img');
@@ -175,7 +175,7 @@ function addAPara()
 	}
 	else
 	{
-		alert(broken);
+		throw errorCode2;
 	}
 }
 
@@ -450,5 +450,14 @@ function deleteThatElement()
 	$('#trash').click(function() {
 		$('.createdDiv').remove();
 		$('.div').remove();
+	});
+}
+
+function colorBox()
+{
+	var colorBoxButton = document.getElementById('boxButton');
+	
+	$('#boxButton').click(function() {
+		
 	});
 }
