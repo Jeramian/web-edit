@@ -461,5 +461,6 @@ function colorBox()
     {
        var colorBox = document.createElement('div');
        colorBox.setAttribute('class', 'box');
+       colorBox.appendChild('')
     });
 }
