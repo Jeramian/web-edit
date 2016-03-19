@@ -456,8 +456,10 @@ function deleteThatElement()
 function colorBox()
 {
 	var colorBoxButton = document.getElementById('boxButton');
-	
-	$('#boxButton').click(function() {
-		
-	});
+    
+    $('#colorBox').click(function() 
+    {
+       var colorBox = document.createElement('div');
+       colorBox.setAttribute('class', 'box');
+    });
 }
