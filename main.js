@@ -436,15 +436,6 @@ function changeLockImage()
 	});
 }
 
-function lockToggle()
-{
-	var src = document.getElementById('lock').attributes(); 
-    
-    $('#lock').click(function() {
-    	
-    });
-}
-
 function deleteThatElement()
 {
 	$('#trash').click(function() {
