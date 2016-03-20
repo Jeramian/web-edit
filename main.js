@@ -9,6 +9,7 @@ NOTES:
 	2.Look into simplier jquery and functions, try to compress as much as possible, save the user some loding time would ya.
 	3.Useablility and functionality go hand in hand!!
 	4.Lines 108-127 clean up, there is also buggs in these lines.
+	5.Be sure to change the names of buttons on Alpha, they would be very confusing to the user (they are in HTML terms).
 
 NEEDS:
 	*menu bar functionality !PHP!
@@ -16,6 +17,7 @@ NEEDS:
 	*Layer box, allowing the user to lock, unlock, and delete layers.
 	*Error messgaes.
 	*User login !PHP!
+	*Set up media quieries for sidebars.
 
 BUGGS:
 	*cannot drag images
