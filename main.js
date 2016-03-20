@@ -11,10 +11,11 @@ NOTES:
 	4.Lines 108-127 clean up, there is also buggs in these lines.
 
 NEEDS:
-	*menu bar functionality
+	*menu bar functionality !PHP!
 	*option to center, left, and right align text and Divs <note> Create a context menu element when over div or text that allows you to style </note>
 	*Layer box, allowing the user to lock, unlock, and delete layers.
 	*Error messgaes.
+	*User login !PHP!
 
 BUGGS:
 	*cannot drag images
