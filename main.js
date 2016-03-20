@@ -452,15 +452,3 @@ function deleteThatElement()
 		$('.div').remove();
 	});
 }
-
-function colorBox()
-{
-	var colorBoxButton = document.getElementById('boxButton');
-    
-    $('#colorBox').click(function() 
-    {
-       var colorBox = document.createElement('div');
-       colorBox.setAttribute('class', 'box');
-       colorBox.appendChild('')
-    });
-}
