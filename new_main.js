@@ -56,6 +56,7 @@ var editorSpace;
 var div;
 var deleteButton;
 var lockButton;
+var whatElement;
 
 function layerMenu()
 {
@@ -85,12 +86,41 @@ function changeLockImage()
     });
 }
 
+function lockFunctionality()
+{   
+    $('#lock').click(function() {
+        if(lock.getAttribute('src') == 'locked.png')
+        {
+            $(whatElement).draggable('disable');
+		    $(whatElement).resizable('disable');
+        }
+        else if(lock.getAttribute('src') == 'unlocked.png')
+        {
+            $(whatElement).draggable();
+		    $(whatElement).resizable();
+        }
+    });
+    
+    $('#lock').dblclick(function() {
+        if(lock.getAttribute('src') == 'locked.png')
+        {
+            $(whatElement).draggable('disable');
+		    $(whatElement).resizable('disable');
+        }
+        else if(lock.getAttribute('src') == 'unlocked.png')
+        {
+            return false;
+        }
+    })
+}
+
 function createADiv()
 {
     editorSpace = document.getElementById('editorArea');
 	div = document.createElement('div');
 	div.setAttribute('class', 'createdDiv');
 	div.setAttribute('id', 'activeDiv');
+    whatElement = '.createdDiv';
 
 	var divColor = window.prompt('Please enter the divs background color');
 	if(divColor === "white")
@@ -126,4 +156,5 @@ function createADiv()
     
     layerMenu();
     changeLockImage();
+    lockFunctionality();
 }
