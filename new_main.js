@@ -18,6 +18,7 @@ NEEDS:
 	*User login !PHP!
 	*Set up media quieries for sidebars.
     *Set divs to always be created behind all other elements
+    *Add elements name to their layer box
 
 BUGGS:
 	*cannot drag images
@@ -153,6 +154,53 @@ function createADiv()
 	}
 
 	editorSpace.appendChild(div);
+    
+    layerMenu();
+    changeLockImage();
+    lockFunctionality();
+}
+
+function createAPara()
+{
+    editorSpace = document.getElementById('editorArea');
+    paragraph = document.createElement('p');
+    var textForPara = window.prompt('Please enter your paragraphs text');
+    if(textForPara.length > 0)
+    {
+        var paraNode = document.createTextNode(textForPara);
+        paragraph.appendChild(paraNode);
+    }
+    else
+    {
+        throw errorCode3;
+    }
+    paragraph.setAttribute('id', 'regPara');
+    whatElement = '#regPara';
+    
+    var paraColor = window.prompt('Please enter your desired text color');
+    if(paraColor === "white")
+    {
+        paragraph.setAttribute('style', 'color:white;');
+    }
+    else if(paraColor === "black")
+	{
+		paragraph.setAttribute('style', 'color:black;');
+	}
+	else if(paraColor === "red")
+	{
+		paragraph.setAttribute('style', 'color:red;');
+
+	}
+	else if(paraColor === "blue")
+	{
+		paragraph.setAttribute('style', 'color:blue;');
+	}
+	else
+	{
+		paragraph.setAttribute('style', 'color:black;');
+	}
+    
+    editorSpace.appendChild(paragraph);
     
     layerMenu();
     changeLockImage();
