@@ -114,9 +114,7 @@ function addADiv()
 	if($('#activeDiv').length > 0)
 	{
 		laymen.appendChild(divLayer);
-		changeLockImage();
-        //lockToggle();
-		deleteThatElement();
+		changeDivLockImage();
 	}
 	else
 	{
@@ -173,7 +171,7 @@ function addAPara()
 	if($('#regPara').length > 0)
 	{
 		laymen.appendChild(paraLayer);
-		changeLockImage();
+		changeParaLockImage();
 		deleteThatElement();
 	}
 	else
@@ -424,7 +422,7 @@ function addAImage()
 	});
 }
 
-function changeLockImage()
+function changeDivLockImage()
 {
 	$('#lock').click(function() {
 		$(this).attr('src', "unlocked.png");
@@ -437,12 +435,25 @@ function changeLockImage()
 		$('.createdDiv').draggable('disable');
 		$('.createdDiv').resizable('disable');
 	});
+    
+    $('#trash').click(function() {
+        $('.createdDiv').remove();
+	});
 }
 
-function deleteThatElement()
+function changeParaLockImage()
 {
-	$('#trash').click(function() {
-		$('.createdDiv').remove();
-		$('.div').remove();
+	$('#lock').click(function() {
+		$(this).attr('src', "unlocked.png");
+		$('#regPara').draggable();
 	});
+
+	$('#lock').dblclick(function() {
+		$(this).attr('src', "locked.png");
+		$('#regPara').draggable('disable');
+	});
+    
+    $('#trash').click(function() {
+       $('#regPara').remove(); 
+    });
 }
