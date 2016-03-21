@@ -23,6 +23,7 @@ NEEDS:
 BUGGS:
 	*cannot drag images
 	*once element is locked into place, the element can no longer be moved. !IMPORTANT!
+    *When trying to delete one div, you delete all the divs
 
 */
 
@@ -58,11 +59,12 @@ var div;
 var deleteButton;
 var lockButton;
 var whatElement;
+var layer;
 
 function layerMenu()
 {
     var laymen = document.getElementById('layers');
-    var layer = document.createElement('div');
+    layer = document.createElement('div');
     var lock = document.createElement('img');
     var deleter = document.createElement('img');
     deleter.setAttribute('src', 'trash.png');
@@ -115,13 +117,23 @@ function lockFunctionality()
     })
 }
 
+function trashIt()
+{
+    $('#trash').click(function() {
+       $(whatElement).remove();
+       $(this).remove();
+    });
+}
+
 function createADiv()
 {
     editorSpace = document.getElementById('editorArea');
 	div = document.createElement('div');
 	div.setAttribute('class', 'createdDiv');
-	div.setAttribute('id', 'activeDiv');
     whatElement = '.createdDiv';
+    $('.createdDiv').each(function() {
+        $(this).uniqueId(); 
+    });
 
 	var divColor = window.prompt('Please enter the divs background color');
 	if(divColor === "white")
@@ -158,6 +170,7 @@ function createADiv()
     layerMenu();
     changeLockImage();
     lockFunctionality();
+    trashIt();
 }
 
 function createAPara()
