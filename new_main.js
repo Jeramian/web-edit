@@ -24,6 +24,10 @@ BUGGS:
 	*cannot drag images
 	*once element is locked into place, the element can no longer be moved. !IMPORTANT!
     *When trying to delete one div, you delete all the divs
+    *cannot get divs to be deleted by their unique id
+    
+CURRENT:
+    *Layer does not delete with specified element.
 
 */
 
