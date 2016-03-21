@@ -8,8 +8,7 @@ NOTES:
 	1.MAINTAIN CODE EDQ, when the code is complete, it should be beautiful, as well as the final product functional to the needs of the user.
 	2.Look into simplier jquery and functions, try to compress as much as possible, save the user some loding time would ya.
 	3.Useablility and functionality go hand in hand!!
-	4.Lines 108-127 clean up, there is also buggs in these lines.
-	5.Be sure to change the names of buttons on Alpha, they would be very confusing to the user (they are in HTML terms).
+	4.Be sure to change the names of buttons on Alpha, they would be very confusing to the user (they are in HTML terms).
 
 NEEDS:
 	*menu bar functionality !PHP!
@@ -18,6 +17,7 @@ NEEDS:
 	*Error messgaes.
 	*User login !PHP!
 	*Set up media quieries for sidebars.
+    *Set divs to always be created behind all other elements
 
 BUGGS:
 	*cannot drag images
@@ -103,13 +103,17 @@ function addADiv()
 	var divLayer = document.createElement('div');
 	var divLock = document.createElement('img');
 	var divDeleter = document.createElement('img');
+    var DivlayerName = document.createElement('p');
+    var DivlayerNameTxt = document.createTextNode('Div')
 	divDeleter.setAttribute('src', 'trash.png');
 	divDeleter.setAttribute('id', 'trash');
 	divLock.setAttribute('src', "locked.png");
 	divLock.setAttribute('id', 'lock');
 	divLayer.setAttribute('class', 'div');
+    DivlayerName.appendChild(DivlayerNameTxt);
 	divLayer.appendChild(divLock);
 	divLayer.appendChild(divDeleter);
+    divLayer.appendChild(DivlayerName);
 
 	if($('#activeDiv').length > 0)
 	{
@@ -172,7 +176,6 @@ function addAPara()
 	{
 		laymen.appendChild(paraLayer);
 		changeParaLockImage();
-		deleteThatElement();
 	}
 	else
 	{
@@ -438,6 +441,7 @@ function changeDivLockImage()
     
     $('#trash').click(function() {
         $('.createdDiv').remove();
+        $('.div').remove();
 	});
 }
 
@@ -454,6 +458,7 @@ function changeParaLockImage()
 	});
     
     $('#trash').click(function() {
-       $('#regPara').remove(); 
+       $('#regPara').remove();
+       $('.para').remove();
     });
 }
