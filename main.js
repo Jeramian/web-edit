@@ -47,7 +47,7 @@ var addImage = document.getElementById('add4');
 var editorSpace = document.getElementById('editorArea');
 
 //style menu
-var textColor = document.getElementById('style1');
+var editorSpace = document.getElementById('editorArea');
 
 //edit area
 var makeEditsArea = document.getElementById('editArea');
