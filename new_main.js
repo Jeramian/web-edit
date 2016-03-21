@@ -57,49 +57,73 @@ var div;
 var deleteButton;
 var lockButton;
 
-//Element Color Prompts\\
-var divColor;
-var ParaColor;
-var Heading1Color;
-var Heading2Color;
-var Heading3Color;
-var Heading4Color;
+function layerMenu()
+{
+    var laymen = document.getElementById('layers');
+    var layer = document.createElement('div');
+    var lock = document.createElement('img');
+    var deleter = document.createElement('img');
+    deleter.setAttribute('src', 'trash.png');
+    deleter.setAttribute('id', 'trash');
+    lock.setAttribute('src', 'locked.png');
+    lock.setAttribute('id', 'lock');
+    layer.setAttribute('class', 'elementLayer');
+    layer.appendChild(lock);
+    layer.appendChild(deleter);
+    
+    laymen.appendChild(layer);
+}
+
+function changeLockImage()
+{
+    $('#lock').click(function() {
+        $(this).attr('src', 'unlocked.png'); 
+    });
+    
+    $('#lock').dblclick(function() {
+       $(this).attr('src', 'locked.png'); 
+    });
+}
 
 function createADiv()
 {
     editorSpace = document.getElementById('editorArea');
-    div = document.createElement('div');
-    div.setAttribute('class', 'createdDiv');   
-    editorSpace.appendChild(div);
+	div = document.createElement('div');
+	div.setAttribute('class', 'createdDiv');
+	div.setAttribute('id', 'activeDiv');
+
+	var divColor = window.prompt('Please enter the divs background color');
+	if(divColor === "white")
+	{
+		div.setAttribute('style', 'background-color:white;');
+	}
+	else if(divColor === "black")
+	{
+		div.setAttribute('style', 'background-color:black');
+	}
+	else if(divColor === "red")
+	{
+		div.setAttribute('style', 'background-color:red');
+	}
+	else if(divColor === "blue")
+	{
+		div.setAttribute('style', 'background-color:blue');
+	}
+	else if(divColor === "yellow")
+	{
+		div.setAttribute('style', 'background-color:yellow');
+	}
+	else if(divColor === "green")
+	{
+		div.setAttribute('style', 'background-color:green');
+	}
+	else
+	{
+		div.setAttribute('style', 'background-color:white;');
+	}
+
+	editorSpace.appendChild(div);
     
-    divColor = window.prompt('Please enter the divs background-color');
-    
-    if(divColor == "black" || "Black")
-    {
-        div.setAttribute('style', 'background-color:black;');
-    }
-    else if(divColor == "white" || "White")
-    {
-        div.setAttribute('style', 'background-color:white;');
-    }
-    else if(divColor == "red" || "Red")
-    {
-        div.setAttribute('style', 'background-color:red;');
-    }
-    else if(divColor == "blue" || "Blue")
-    {
-        div.setAttribute('style', 'background-color:blue;');
-    }
-    else if(divColor == "yellow" || "Yellow")
-    {
-        div.setAttribute('style', 'background-color:yellow;');
-    }
-    else if(divColor == "green" || "Green")
-    {
-        div.setAttribute('style', 'background-color:green;');
-    }
-    else
-    {
-        div.setAttribute('style', 'background-color:white;');
-    }
+    layerMenu();
+    changeLockImage();
 }

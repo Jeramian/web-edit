@@ -71,14 +71,7 @@
 {
 	border: 4px solid blue;
 }
-.div
-{
-	width: 110px;
-	height: 30px;
-	border: 2px solid black;
-	text-align: center;
-}
-.para
+.elementLayer
 {
 	width: 110px;
 	height: 30px;
