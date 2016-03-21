@@ -61,6 +61,16 @@ var lockButton;
 var whatElement;
 var layer;
 
+function generateId()
+{
+    function S4() 
+    {
+    return (((1+Math.random())*0x10000)|0).toString(16).substring(1); 
+    }
+    
+    guid = (S4() + S4() + "-" + S4() + "-4" + S4().substr(0,3) + "-" + S4() + "-" + S4() + S4() + S4()).toLowerCase();
+}
+
 function layerMenu()
 {
     var laymen = document.getElementById('layers');
@@ -127,13 +137,12 @@ function trashIt()
 
 function createADiv()
 {
+    generateId();
     editorSpace = document.getElementById('editorArea');
 	div = document.createElement('div');
 	div.setAttribute('class', 'createdDiv');
+    div.setAttribute('id', guid);
     whatElement = '.createdDiv';
-    $('.createdDiv').each(function() {
-        $(this).uniqueId(); 
-    });
 
 	var divColor = window.prompt('Please enter the divs background color');
 	if(divColor === "white")
