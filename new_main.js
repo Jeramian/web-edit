@@ -134,7 +134,7 @@ function lockFunctionality()
 function trashIt()
 {
     $('#trash').click(function() {
-       $(whatElement).remove();
+       $('#' + guid).remove();
        $(this).remove();
     });
 }
