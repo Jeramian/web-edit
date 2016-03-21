@@ -16,6 +16,7 @@ Notes:
 
 NEEDS:
     *create script that allows an color or hex code to be given to spcify a color of any element
+    *Colors
 
 BUGGS:
 */
