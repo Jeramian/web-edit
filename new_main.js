@@ -19,15 +19,16 @@ NEEDS:
 	*Set up media quieries for sidebars.
     *Set divs to always be created behind all other elements
     *Add elements name to their layer box
+    *All elements to obtain unique id
 
 BUGGS:
 	*cannot drag images
 	*once element is locked into place, the element can no longer be moved. !IMPORTANT!
     *When trying to delete one div, you delete all the divs
-    *cannot get divs to be deleted by their unique id
     
 CURRENT:
-    *Layer does not delete with specified element.
+    *When trying to delete one div, you delete all the divs
+        EDIT: After appling the unique id, you can only delte the most recent div.
 
 */
 
@@ -108,21 +109,21 @@ function lockFunctionality()
     $('#lock').click(function() {
         if(lock.getAttribute('src') == 'locked.png')
         {
-            $(whatElement).draggable('disable');
-		    $(whatElement).resizable('disable');
+            $('#' + whatElement).draggable('disable');
+		    $('#' + whatElement).resizable('disable');
         }
         else if(lock.getAttribute('src') == 'unlocked.png')
         {
-            $(whatElement).draggable();
-		    $(whatElement).resizable();
+            $('#' + whatElement).draggable();
+		    $('#' + whatElement).resizable();
         }
     });
     
     $('#lock').dblclick(function() {
         if(lock.getAttribute('src') == 'locked.png')
         {
-            $(whatElement).draggable('disable');
-		    $(whatElement).resizable('disable');
+            $('#' + whatElement).draggable('disable');
+		    $('#' + whatElement).resizable('disable');
         }
         else if(lock.getAttribute('src') == 'unlocked.png')
         {
