@@ -24,8 +24,8 @@ NEEDS:
 BUGGS:
 	*cannot drag images
 	*once element is locked into place, the element can no longer be moved. !IMPORTANT!
-    *When trying to delete one div, you delete all the divs
-    
+  *When a div is given the random id, then only that div has functionality in the layers box.
+
 CURRENT:
     *When trying to delete one div, you delete all the divs
         EDIT: After appling the unique id, you can only delte the most recent div.
@@ -68,11 +68,11 @@ var layer;
 
 function generateId()
 {
-    function S4() 
+    function S4()
     {
-    return (((1+Math.random())*0x10000)|0).toString(16).substring(1); 
+    return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
     }
-    
+
     guid = (S4() + S4() + "-" + S4() + "-4" + S4().substr(0,3) + "-" + S4() + "-" + S4() + S4() + S4()).toLowerCase();
 }
 
@@ -89,36 +89,47 @@ function layerMenu()
     layer.setAttribute('class', 'elementLayer');
     layer.appendChild(lock);
     layer.appendChild(deleter);
-    
+
     laymen.appendChild(layer);
 }
 
 function changeLockImage()
 {
     $('#lock').click(function() {
-        $(this).attr('src', 'unlocked.png'); 
+        $(this).attr('src', 'unlocked.png');
     });
-    
+
     $('#lock').dblclick(function() {
-       $(this).attr('src', 'locked.png'); 
+       $(this).attr('src', 'locked.png');
     });
 }
 
 function lockFunctionality()
-{   
+{
     $('#lock').click(function() {
         if(lock.getAttribute('src') == 'locked.png')
         {
             $('#' + whatElement).draggable('disable');
-		    $('#' + whatElement).resizable('disable');
+		        $('#' + whatElement).resizable('disable');
         }
         else if(lock.getAttribute('src') == 'unlocked.png')
         {
             $('#' + whatElement).draggable();
-		    $('#' + whatElement).resizable();
+		        $('#' + whatElement).resizable();
         }
     });
-    
+
+    function newLockFunctionalty()
+    {
+      $('#lock').click(function() {
+        if(lock.getAttribute('src') == 'locked.png')
+        {
+          $(---).draggable('disable');
+          $(---).resizable('disable');
+        }
+      });
+    }
+
     $('#lock').dblclick(function() {
         if(lock.getAttribute('src') == 'locked.png')
         {
@@ -180,7 +191,7 @@ function createADiv()
 	}
 
 	editorSpace.appendChild(div);
-    
+
     layerMenu();
     changeLockImage();
     lockFunctionality();
@@ -203,7 +214,7 @@ function createAPara()
     }
     paragraph.setAttribute('id', 'regPara');
     whatElement = '#regPara';
-    
+
     var paraColor = window.prompt('Please enter your desired text color');
     if(paraColor === "white")
     {
@@ -226,9 +237,9 @@ function createAPara()
 	{
 		paragraph.setAttribute('style', 'color:black;');
 	}
-    
+
     editorSpace.appendChild(paragraph);
-    
+
     layerMenu();
     changeLockImage();
     lockFunctionality();
