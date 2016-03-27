@@ -124,8 +124,8 @@ function lockFunctionality()
       $('#lock').click(function() {
         if(lock.getAttribute('src') == 'locked.png')
         {
-          $(---).draggable('disable');
-          $(---).resizable('disable');
+          $().draggable('disable');
+          $().resizable('disable');
         }
       });
     }
