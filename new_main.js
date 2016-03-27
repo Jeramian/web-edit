@@ -20,6 +20,7 @@ NEEDS:
     *Set divs to always be created behind all other elements
     *Add elements name to their layer box
     *All elements to obtain unique id
+    *REQUIRMENTS DOCUMENT
 
 BUGGS:
 	*cannot drag images

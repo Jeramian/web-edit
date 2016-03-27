@@ -1,4 +1,5 @@
 //Jeremy Eramian 2016
+//Black Gekko Development
 //Browser Testing
 
 function consoleError()
