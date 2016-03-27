@@ -119,17 +119,6 @@ function lockFunctionality()
         }
     });
 
-    function newLockFunctionalty()
-    {
-      $('#lock').click(function() {
-        if(lock.getAttribute('src') == 'locked.png')
-        {
-          $().draggable('disable');
-          $().resizable('disable');
-        }
-      });
-    }
-
     $('#lock').dblclick(function() {
         if(lock.getAttribute('src') == 'locked.png')
         {
