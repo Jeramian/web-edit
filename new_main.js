@@ -110,12 +110,12 @@ function lockFunctionality()
         if(lock.getAttribute('src') == 'locked.png')
         {
             $('#' + whatElement).draggable('disable');
-		        $('#' + whatElement).resizable('disable');
+		    $('#' + whatElement).resizable('disable');
         }
         else if(lock.getAttribute('src') == 'unlocked.png')
         {
             $('#' + whatElement).draggable();
-		        $('#' + whatElement).resizable();
+		    $('#' + whatElement).resizable();
         }
     });
 
@@ -129,7 +129,32 @@ function lockFunctionality()
         {
             return false;
         }
-    })
+    });
+}
+
+function lockFunctionality2()
+{
+    $('#lock').click(function() {
+        if(lock.getAttribute('src') == 'locked.png')
+        {
+            $('#' + whatElement).draggable('disable');
+        }
+        else if(lock.getAttribute('src') == 'unlocked.png')
+        {
+            $('#' + whatElement).draggable();
+        }
+    });
+
+    $('#lock').dblclick(function() {
+        if(lock.getAttribute('src') == 'locked.png')
+        {
+            $('#' + whatElement).draggable('disable');
+        }
+        else if(lock.getAttribute('src') == 'unlocked.png')
+        {
+            return false;
+        }
+    });
 }
 
 function trashIt()
@@ -231,5 +256,5 @@ function createAPara()
 
     layerMenu();
     changeLockImage();
-    lockFunctionality();
+    lockFunctionality2();
 }
