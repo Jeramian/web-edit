@@ -168,7 +168,9 @@ function trashIt()
 
 /*
     Issue #18 Elements being disabled   
-        When a new element is created it then overrides GUID and causes the others to loose functionality
+        When a new element is created it then overrides GUID and whatElement, this causes the others to loose functionality
+        
+        The whatElement variable needs to be deprecated, and replaced with function that pulls the elements id.
 */
 
 function createADiv()
@@ -178,7 +180,7 @@ function createADiv()
 	div = document.createElement('div');
 	div.setAttribute('class', 'createdDiv');
     div.setAttribute('id', guid);
-    whatElement = guid;
+    //whatElement = guid;
 
 	var divColor = window.prompt('Please enter the divs background color');
 	if(divColor === "white")
@@ -216,6 +218,10 @@ function createADiv()
     changeLockImage();
     lockFunctionality();
     trashIt();
+    
+    $('.createdDiv').dblclick(function() {
+        alert($('.createdDiv').id);
+    });
 }
 
 function createAPara()
