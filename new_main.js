@@ -219,6 +219,8 @@ function createADiv()
     lockFunctionality();
     trashIt();
     
+    
+    //This returnes undefined...why
     $('.createdDiv').dblclick(function() {
         alert($('.createdDiv').id);
     });
