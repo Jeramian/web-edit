@@ -25,7 +25,7 @@ NEEDS:
 BUGGS:
 	*cannot drag images
 	*once element is locked into place, the element can no longer be moved. !IMPORTANT!
-  *When a div is given the random id, then only that div has functionality in the layers box.
+    *When a div is given the random id, then only that div has functionality in the layers box.
 
 CURRENT:
     *When trying to delete one div, you delete all the divs
@@ -165,6 +165,11 @@ function trashIt()
        $(this).remove();
     });
 }
+
+/*
+    Issue #18 Elements being disabled   
+        When a new element is created it then overrides GUID and causes the others to loose functionality
+*/
 
 function createADiv()
 {
