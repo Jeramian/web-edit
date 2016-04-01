@@ -173,6 +173,7 @@ function trashIt()
         The whatElement variable needs to be deprecated, and replaced with function that pulls the elements id.
         
         WhatElement has been removed and a function has been formed to pull an elements id.
+        
 */
 
 function createADiv()
@@ -184,7 +185,7 @@ function createADiv()
     div.setAttribute('id', guid);
     //whatElement = guid;
 
-	var divColor = window.prompt('Please enter the divs background color');
+	var divColor = window.prompt('Please enter the divs background color').toLowerCase();
 	if(divColor === "white")
 	{
 		div.setAttribute('style', 'background-color:white;');
@@ -231,7 +232,7 @@ function createAPara()
 {
     editorSpace = document.getElementById('editorArea');
     paragraph = document.createElement('p');
-    var textForPara = window.prompt('Please enter your paragraphs text');
+    var textForPara = window.prompt('Please enter your paragraphs text').toLowerCase();
     if(textForPara.length > 0)
     {
         var paraNode = document.createTextNode(textForPara);
