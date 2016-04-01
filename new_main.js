@@ -26,11 +26,6 @@ BUGGS:
 	*cannot drag images
 	*once element is locked into place, the element can no longer be moved. !IMPORTANT!
     *When a div is given the random id, then only that div has functionality in the layers box.
-
-CURRENT:
-    *When trying to delete one div, you delete all the divs
-        EDIT: After appling the unique id, you can only delte the most recent div.
-
 */
 
 //Error codes\\
@@ -66,6 +61,7 @@ var deleteButton;
 var lockButton;
 var whatElement;
 var layer;
+var divELement;
 
 function generateId()
 {
@@ -77,105 +73,6 @@ function generateId()
     guid = (S4() + S4() + "-" + S4() + "-4" + S4().substr(0,3) + "-" + S4() + "-" + S4() + S4() + S4()).toLowerCase();
 }
 
-function layerMenu()
-{
-    var laymen = document.getElementById('layers');
-    layer = document.createElement('div');
-    var lock = document.createElement('img');
-    var deleter = document.createElement('img');
-    deleter.setAttribute('src', 'trash.png');
-    deleter.setAttribute('id', 'trash');
-    lock.setAttribute('src', 'locked.png');
-    lock.setAttribute('id', 'lock');
-    layer.setAttribute('class', 'elementLayer');
-    layer.appendChild(lock);
-    layer.appendChild(deleter);
-
-    laymen.appendChild(layer);
-}
-
-function changeLockImage()
-{
-    $('#lock').click(function() {
-        $(this).attr('src', 'unlocked.png');
-    });
-
-    $('#lock').dblclick(function() {
-       $(this).attr('src', 'locked.png');
-    });
-}
-
-function lockFunctionality()
-{
-    $('#lock').click(function() {
-        if(lock.getAttribute('src') == 'locked.png')
-        {
-            $('#' + whatElement).draggable('disable');
-		    $('#' + whatElement).resizable('disable');
-        }
-        else if(lock.getAttribute('src') == 'unlocked.png')
-        {
-            $('#' + whatElement).draggable();
-		    $('#' + whatElement).resizable();
-        }
-    });
-
-    $('#lock').dblclick(function() {
-        if(lock.getAttribute('src') == 'locked.png')
-        {
-            $('#' + whatElement).draggable('disable');
-		    $('#' + whatElement).resizable('disable');
-        }
-        else if(lock.getAttribute('src') == 'unlocked.png')
-        {
-            return false;
-        }
-    });
-}
-
-function lockFunctionality2()
-{
-    $('#lock').click(function() {
-        if(lock.getAttribute('src') == 'locked.png')
-        {
-            $('#' + whatElement).draggable('disable');
-        }
-        else if(lock.getAttribute('src') == 'unlocked.png')
-        {
-            $('#' + whatElement).draggable();
-        }
-    });
-
-    $('#lock').dblclick(function() {
-        if(lock.getAttribute('src') == 'locked.png')
-        {
-            $('#' + whatElement).draggable('disable');
-        }
-        else if(lock.getAttribute('src') == 'unlocked.png')
-        {
-            return false;
-        }
-    });
-}
-
-function trashIt()
-{
-    $('#trash').click(function() {
-       $('#' + guid).remove();
-       $(this).remove();
-    });
-}
-
-/*
-    Issue #18 Elements being disabled   
-        When a new element is created it then overrides GUID and whatElement, this causes the others to loose functionality
-        
-        The whatElement variable needs to be deprecated, and replaced with function that pulls the elements id.
-        
-        WhatElement has been removed and a function has been formed to pull an elements id.
-        
-*/
-
 function createADiv()
 {
     generateId();
@@ -184,6 +81,7 @@ function createADiv()
 	div.setAttribute('class', 'createdDiv');
     div.setAttribute('id', guid);
     //whatElement = guid;
+    divELement = 'createdDiv';
 
 	var divColor = window.prompt('Please enter the divs background color').toLowerCase();
 	if(divColor === "white")
@@ -216,16 +114,6 @@ function createADiv()
 	}
 
 	editorSpace.appendChild(div);
-
-    layerMenu();
-    changeLockImage();
-    lockFunctionality();
-    trashIt();
-    
-    //Test pull an elements id for Issue #18
-    $('.createdDiv').dblclick(function() {
-        alert($(this).attr('id'));
-    });
 }
 
 function createAPara()
@@ -269,8 +157,8 @@ function createAPara()
 	}
 
     editorSpace.appendChild(paragraph);
-
-    layerMenu();
-    changeLockImage();
-    lockFunctionality2();
 }
+
+//TESTING\\
+
+
