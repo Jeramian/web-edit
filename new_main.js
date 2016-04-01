@@ -73,6 +73,18 @@ function generateId()
     guid = (S4() + S4() + "-" + S4() + "-4" + S4().substr(0,3) + "-" + S4() + "-" + S4() + S4() + S4()).toLowerCase();
 }
 
+function unlockedStage()
+{
+    $('#' + guid).dblclick(function() {
+       $(this).draggable(); 
+    });
+}
+
+function lockedStage()
+{
+    
+}
+
 function createADiv()
 {
     generateId();
@@ -80,7 +92,6 @@ function createADiv()
 	div = document.createElement('div');
 	div.setAttribute('class', 'createdDiv');
     div.setAttribute('id', guid);
-    //whatElement = guid;
     divELement = 'createdDiv';
 
 	var divColor = window.prompt('Please enter the divs background color').toLowerCase();
@@ -114,6 +125,8 @@ function createADiv()
 	}
 
 	editorSpace.appendChild(div);
+    
+    unlockedStage();
 }
 
 function createAPara()
