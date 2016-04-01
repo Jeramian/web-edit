@@ -171,6 +171,8 @@ function trashIt()
         When a new element is created it then overrides GUID and whatElement, this causes the others to loose functionality
         
         The whatElement variable needs to be deprecated, and replaced with function that pulls the elements id.
+        
+        WhatElement has been removed and a function has been formed to pull an elements id.
 */
 
 function createADiv()
@@ -219,10 +221,9 @@ function createADiv()
     lockFunctionality();
     trashIt();
     
-    
-    //This returnes undefined...why
+    //Test pull an elements id for Issue #18
     $('.createdDiv').dblclick(function() {
-        alert($('.createdDiv').id);
+        alert($(this).attr('id'));
     });
 }
 
