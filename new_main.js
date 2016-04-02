@@ -22,6 +22,7 @@ NEEDS:
     *All elements to obtain unique id
     *REQUIRMENTS DOCUMENT
     *Sub menu for each element to set properties.
+        - Used for sizing and coloration of the element, EX: Text color or font size, Div color.
 
 BUGGS:
 	*cannot drag images
