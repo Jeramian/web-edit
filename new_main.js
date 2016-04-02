@@ -21,6 +21,7 @@ NEEDS:
     *Add elements name to their layer box
     *All elements to obtain unique id
     *REQUIRMENTS DOCUMENT
+    *Sub menu for each element to set properties.
 
 BUGGS:
 	*cannot drag images
@@ -177,4 +178,9 @@ function createAPara()
 
 //TESTING\\
 
+//Even with the trigger on, the event does not fire.
+function secondaryMenuTST()
+{
+    addDiv.addEventListener("dblclick", function(){alert('Working!');});
+}
 
