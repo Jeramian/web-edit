@@ -75,14 +75,16 @@ function generateId()
 
 function unlockedStage()
 {
-    $('#' + guid).dblclick(function() {
+    $('#' + guid).click(function() {
        $(this).draggable(); 
     });
 }
 
 function lockedStage()
 {
-    
+    $('#' + guid).dblclick(function() {
+        $(this).draggable('disable');
+    });
 }
 
 function createADiv()
@@ -127,6 +129,7 @@ function createADiv()
 	editorSpace.appendChild(div);
     
     unlockedStage();
+    lockedStage();
 }
 
 function createAPara()
