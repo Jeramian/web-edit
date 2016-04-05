@@ -9,6 +9,8 @@ NOTES:
 	2.Look into simplier jquery and functions, try to compress as much as possible, save the user some loding time would ya.
 	3.Useablility and functionality go hand in hand!!
 	4.Be sure to change the names of buttons on Alpha, they would be very confusing to the user (they are in HTML terms).
+    5.Need to find a way to reduce the amount of functions going on there before we move things over to the react platform
+        the reality is all these functions having to be loaded by the page WILL slow it down, even though they do not all fire at once it is still a hastle.
 
 NEEDS:
 	*menu bar functionality !PHP!
