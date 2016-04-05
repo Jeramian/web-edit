@@ -28,7 +28,7 @@ NEEDS:
 
 BUGGS:
 	*cannot drag images
-	*once element is locked into place, the element can no longer be moved. !IMPORTANT!
+	!FIXED! *once element is locked into place, the element can no longer be moved. !IMPORTANT!
 */
 
 //Error codes\\
@@ -65,6 +65,7 @@ var lockButton;
 var whatElement;
 var layer;
 var divELement;
+var guid;
 
 function generateId()
 {
@@ -79,16 +80,10 @@ function generateId()
 function unlockedStage()
 {
     $('#' + guid).click(function() {
-       $(this).draggable();
-       $(this).resizable();
-    });
-}
-
-function lockedStage()
-{
-    $('#' + guid).dblclick(function() {
-        $(this).draggable('disable');
-        $(this).resizable('disable');
+        if($(this).draggable())
+        {
+            $(this).draggable('disable');
+        }
     });
 }
 
@@ -103,6 +98,13 @@ function secondLockStage()
 {
     $('#', + guid).dblclick(function() {
        $(this).draggable('disable'); 
+    });
+}
+
+function selectMe()
+{
+    $('#' + guid).click(function(){
+       $(this).toggleClass('selected'); 
     });
 }
 
@@ -148,7 +150,7 @@ function createADiv()
 	editorSpace.appendChild(div);
     
     unlockedStage();
-    lockedStage();
+    selectMe();
 }
 
 function createAPara()
@@ -206,3 +208,8 @@ function secondaryMenuTST()
     addDiv.addEventListener("dblclick", function(){alert('Working!');});
 }
 
+function colorPickerBox()
+{
+    var createBox = document.createElement('div');
+    createBox.setAttribute('class', 'colorBox');
+}
