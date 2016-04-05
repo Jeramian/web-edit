@@ -77,7 +77,8 @@ function generateId()
 function unlockedStage()
 {
     $('#' + guid).click(function() {
-       $(this).draggable(); 
+       $(this).draggable();
+       $(this).resizable();
     });
 }
 
@@ -85,6 +86,21 @@ function lockedStage()
 {
     $('#' + guid).dblclick(function() {
         $(this).draggable('disable');
+        $(this).resizable('disable');
+    });
+}
+
+function secondUnlockedStage()
+{
+    $('#' + guid).click(function() {
+       $(this).draggable(); 
+    });
+}
+
+function secondLockStage()
+{
+    $('#', + guid).dblclick(function() {
+       $(this).draggable('disable'); 
     });
 }
 
@@ -174,6 +190,10 @@ function createAPara()
 	}
 
     editorSpace.appendChild(paragraph);
+    
+    secondLockStage();
+    secondUnlockedStage();
+    
 }
 
 //TESTING\\
