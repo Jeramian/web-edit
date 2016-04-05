@@ -27,7 +27,6 @@ NEEDS:
 BUGGS:
 	*cannot drag images
 	*once element is locked into place, the element can no longer be moved. !IMPORTANT!
-    *When a div is given the random id, then only that div has functionality in the layers box.
 */
 
 //Error codes\\
