@@ -77,16 +77,6 @@ function generateId()
     guid = (S4() + S4() + "-" + S4() + "-4" + S4().substr(0,3) + "-" + S4() + "-" + S4() + S4() + S4()).toLowerCase();
 }
 
-function unlockedStage()
-{
-    $('#' + guid).click(function() {
-        if($(this).draggable())
-        {
-            $(this).draggable('disable');
-        }
-    });
-}
-
 function secondUnlockedStage()
 {
     $('#' + guid).click(function() {
@@ -104,7 +94,16 @@ function secondLockStage()
 function selectMe()
 {
     $('#' + guid).click(function(){
-       $(this).toggleClass('selected'); 
+       $(this).toggleClass('selected');
+       
+       if($(this).hasClass('selected'))
+       {
+           $(this).draggable();
+       }
+       else
+       {
+           $(this).draggable('disable');
+       }
     });
 }
 
@@ -148,8 +147,7 @@ function createADiv()
 	}
 
 	editorSpace.appendChild(div);
-    
-    unlockedStage();
+
     selectMe();
 }
 
