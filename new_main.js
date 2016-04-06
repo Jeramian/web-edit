@@ -112,6 +112,13 @@ function divSelectMe()
     });
 }
 
+function editMe()
+{
+    $('#add1').contextmenu(function() {
+        
+    });
+}
+
 function createADiv()
 {
     generateId();
@@ -201,6 +208,12 @@ function createAPara()
     secondLockStage();
     secondUnlockedStage();
     
+}
+
+function runEm()
+{
+    createADiv();
+    editMe();
 }
 
 //TESTING\\
