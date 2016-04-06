@@ -28,6 +28,7 @@ NEEDS:
 
 BUGGS:
 	*cannot drag images
+    * #19: Once another element is created, the first looses functionality as var guid is changed.
 */
 
 //Error codes\\
