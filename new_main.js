@@ -67,6 +67,8 @@ var layer;
 var divELement;
 var guid;
 
+$('#' + guid).draggable({ disabled: true });
+
 function generateId()
 {
     function S4()
@@ -94,17 +96,17 @@ function secondLockStage()
 function selectMe()
 {
     $('#' + guid).click(function(){
-       $(this).toggleClass('selected');
+        $(this).toggleClass('selected');
+       
+        if($('#' + guid).hasClass('selected'))
+        {
+            $(this).draggable();
+        }
+        else
+        {
+            $(this).draggable({ disabled: true });   
+        }
     });
-    
-    if($('#' + guid).hasClass('selected'))
-    {
-        $(this).draggable();
-    }
-    else
-    { 
-        $(this).draggable('disable');
-    }
 }
 
 function createADiv()
