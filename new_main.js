@@ -102,7 +102,7 @@ function selectMe()
     $('#' + guid).click(function(){
         $(this).toggleClass('selected');
        
-        if($('#' + guid).hasClass('selected'))
+        if($('.' + guid).hasClass('selected'))
         {
             $(this).draggable({ disabled: false });
         }
@@ -159,6 +159,7 @@ function createADiv()
 
 function createAPara()
 {
+    generateId();
     editorSpace = document.getElementById('editorArea');
     paragraph = document.createElement('p');
     var textForPara = window.prompt('Please enter your paragraphs text').toLowerCase();
@@ -171,8 +172,8 @@ function createAPara()
     {
         throw errorCode3;
     }
-    paragraph.setAttribute('id', 'regPara');
-    whatElement = '#regPara';
+    paragraph.setAttribute('class', 'regPara');
+    paragraph.setAttribute('id', guid);
 
     var paraColor = window.prompt('Please enter your desired text color');
     if(paraColor === "white")
@@ -199,8 +200,7 @@ function createAPara()
 
     editorSpace.appendChild(paragraph);
     
-    secondLockStage();
-    secondUnlockedStage();
+    selectMe();
     
 }
 
