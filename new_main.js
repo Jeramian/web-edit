@@ -100,9 +100,9 @@ function divSelectMe()
 function selectMe()
 {
     $('#' + guid).click(function(){
-        $(this).toggleClass('selected');
+        $(this).toggleClass('selectedText');
        
-        if($('.' + guid).hasClass('selected'))
+        if($('#' + guid).hasClass('selectedText'))
         {
             $(this).draggable({ disabled: false });
         }
