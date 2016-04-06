@@ -68,6 +68,7 @@ var divELement;
 var guid;
 
 $('#' + guid).draggable({ disabled: true });
+$('#' + guid).resizable({ disabled: true});
 
 function generateId()
 {
@@ -93,7 +94,7 @@ function secondLockStage()
     });
 }
 
-function selectMe()
+function divSelectMe()
 {
     $('#' + guid).click(function(){
         $(this).toggleClass('selected');
@@ -101,10 +102,12 @@ function selectMe()
         if($('#' + guid).hasClass('selected'))
         {
             $(this).draggable({ disabled: false });
+            $(this).resizable({ disabled: false });
         }
         else
         {
-            $(this).draggable({ disabled: true });   
+            $(this).draggable({ disabled: true });
+            $(this).resizable({ disabled: true });
         }
     });
 }
@@ -150,7 +153,7 @@ function createADiv()
 
 	editorSpace.appendChild(div);
 
-    selectMe();
+    divSelectMe();
 }
 
 function createAPara()
@@ -206,10 +209,4 @@ function createAPara()
 function secondaryMenuTST()
 {
     addDiv.addEventListener("dblclick", function(){alert('Working!');});
-}
-
-function colorPickerBox()
-{
-    var createBox = document.createElement('div');
-    createBox.setAttribute('class', 'colorBox');
 }
