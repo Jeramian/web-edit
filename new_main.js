@@ -28,7 +28,6 @@ NEEDS:
 
 BUGGS:
 	*cannot drag images
-	!FIXED! *once element is locked into place, the element can no longer be moved. !IMPORTANT!
 */
 
 //Error codes\\
@@ -80,20 +79,6 @@ function generateId()
     guid = (S4() + S4() + "-" + S4() + "-4" + S4().substr(0,3) + "-" + S4() + "-" + S4() + S4() + S4()).toLowerCase();
 }
 
-function secondUnlockedStage()
-{
-    $('#' + guid).click(function() {
-       $(this).draggable(); 
-    });
-}
-
-function secondLockStage()
-{
-    $('#', + guid).dblclick(function() {
-       $(this).draggable('disable'); 
-    });
-}
-
 function divSelectMe()
 {
     $('#' + guid).click(function(){
@@ -108,6 +93,22 @@ function divSelectMe()
         {
             $(this).draggable({ disabled: true });
             $(this).resizable({ disabled: true });
+        }
+    });
+}
+
+function selectMe()
+{
+    $('#' + guid).click(function(){
+        $(this).toggleClass('selected');
+       
+        if($('#' + guid).hasClass('selected'))
+        {
+            $(this).draggable({ disabled: false });
+        }
+        else
+        {
+            $(this).draggable({ disabled: true });
         }
     });
 }
