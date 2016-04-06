@@ -112,13 +112,6 @@ function divSelectMe()
     });
 }
 
-function editMe()
-{
-    $('#add1').contextmenu(function() {
-        
-    });
-}
-
 function createADiv()
 {
     generateId();
@@ -213,7 +206,6 @@ function createAPara()
 function runEm()
 {
     createADiv();
-    editMe();
 }
 
 //TESTING\\

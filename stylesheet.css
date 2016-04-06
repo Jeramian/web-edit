@@ -78,3 +78,10 @@
 	border: 2px solid black;
 	text-align: center;
 }
+.editMenu
+{
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    background-color: white;
+}
