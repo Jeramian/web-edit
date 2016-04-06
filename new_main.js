@@ -100,7 +100,7 @@ function selectMe()
        
         if($('#' + guid).hasClass('selected'))
         {
-            $(this).draggable();
+            $(this).draggable({ disabled: false });
         }
         else
         {
