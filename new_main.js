@@ -95,16 +95,16 @@ function selectMe()
 {
     $('#' + guid).click(function(){
        $(this).toggleClass('selected');
-       
-       if($(this).hasClass('selected'))
-       {
-           $(this).draggable();
-       }
-       else
-       {
-           $(this).draggable('disable');
-       }
     });
+    
+    if($('#' + guid).hasClass('selected'))
+    {
+        $(this).draggable();
+    }
+    else
+    { 
+        $(this).draggable('disable');
+    }
 }
 
 function createADiv()
