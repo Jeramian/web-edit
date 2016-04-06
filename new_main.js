@@ -67,8 +67,11 @@ var layer;
 var divELement;
 var guid;
 
-$('#' + guid).draggable({ disabled: true });
-$('#' + guid).resizable({ disabled: true});
+//Selector dependant variable DND
+var selectedElement;
+
+$('#' + selectedElement).draggable({ disabled: true });
+$('#' + selectedElement).resizable({ disabled: true});
 
 function generateId()
 {
@@ -82,10 +85,10 @@ function generateId()
 
 function divSelectMe()
 {
-    $('#' + guid).click(function(){
+    $('#' + selectedElement).click(function(){
         $(this).toggleClass('selected');
        
-        if($('#' + guid).hasClass('selected'))
+        if($('#' + selectedElement).hasClass('selected'))
         {
             $(this).draggable({ disabled: false });
             $(this).resizable({ disabled: false });
@@ -154,6 +157,10 @@ function createADiv()
 	}
 
 	editorSpace.appendChild(div);
+	
+	$('.createdDiv').hover(function() {
+	   selectedElement = $(this).attr('id'); 
+	});
 
     divSelectMe();
 }
@@ -200,6 +207,10 @@ function createAPara()
 	}
 
     editorSpace.appendChild(paragraph);
+    
+    $('.regPara').hover(function() {
+	   selectedElement = $(this).attr('id'); 
+	});
     
     selectMe();
     
