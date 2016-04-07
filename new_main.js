@@ -63,6 +63,7 @@ var div;
 var layer;
 var divELement;
 var guid;
+var elementType;
 
 //Selector dependant variable DND
 var selectedElement;
@@ -122,6 +123,7 @@ function createADiv()
 	div.setAttribute('class', 'createdDiv');
     div.setAttribute('id', guid);
     divELement = 'createdDiv';
+    elementType = 'Div';
 
 	var divColor = window.prompt('Please enter the divs background color').toLowerCase();
 	if(divColor === "white")
@@ -180,6 +182,7 @@ function createAPara()
     }
     paragraph.setAttribute('class', 'regPara');
     paragraph.setAttribute('id', guid);
+    elementType = "paragraphText";
 
     var paraColor = window.prompt('Please enter your desired text color');
     if(paraColor === "white")
@@ -225,4 +228,14 @@ function runEm()
 function secondaryMenuTST()
 {
     addDiv.addEventListener("dblclick", function(){alert('Working!');});
+}
+
+//this function will be able to track the mouse and detect what object is being hovered at the time. This will then, when clicked give the element functionality.
+function someFunction()
+{
+    alert("Hi there");
+}
+function whoAmI()
+{
+    $('.createdDiv').mouseenter(someFunction());
 }
