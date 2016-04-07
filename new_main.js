@@ -155,6 +155,7 @@ function createADiv()
 
 	editorSpace.appendChild(div);
 	
+	//Who am I methods
 	$('.createdDiv').hover(function() {
 	   selectedElement = $(this).attr('id'); 
 	});
