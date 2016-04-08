@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/Jeramian/web-edit/issues"
   },
-  "homepage": "https://github.com/Jeramian/web-edit#readme"
+  "homepage": "https://github.com/Jeramian/web-edit#readme",
+  "dependencies": {
+    "webpack": "^1.12.14"
+  },
+  "devDependencies": {}
 }
