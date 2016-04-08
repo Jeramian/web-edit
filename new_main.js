@@ -16,7 +16,6 @@ NEEDS:
 	*option to center, left, and right align text and Divs <note> Create a context menu element when over div or text that allows you to style </note>
 	*Layer box, allowing the user to lock, unlock, and delete layers.
 	*Error messgaes.
-	*User login !PHP!
 	*Set up media quieries for sidebars.
     *Set divs to always be created behind all other elements
     *Add elements name to their layer box
@@ -72,6 +71,7 @@ var selectedElementTwo;
 
 $('#' + selectedElement).draggable({ disabled: true });
 $('#' + selectedElement).resizable({ disabled: true});
+$('#' + selectedElementTwo).draggable({ disabled: true });
 
 function generateId()
 {
