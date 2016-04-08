@@ -1,5 +1,4 @@
 //Jeremy Eramian 2016
-//Javascript Text file reader
 /*
 
 create a simple WYSIWYG editor
@@ -28,7 +27,8 @@ NEEDS:
 
 BUGGS:
 	*cannot drag images
-    * #19: Once another element is created, the first looses functionality as var guid is changed.
+    *#19: Once another element is created, the first looses functionality as var guid is changed.
+    *#20: Elements using the selectedElement var, are not active until a second element is created
 */
 
 //Error codes\\
@@ -66,7 +66,9 @@ var guid;
 var elementType;
 
 //Selector dependant variable DND
+//Selected Element two is for every element exept for divs, they use the fist selected element variable.
 var selectedElement;
+var selectedElementTwo;
 
 $('#' + selectedElement).draggable({ disabled: true });
 $('#' + selectedElement).resizable({ disabled: true});
@@ -101,10 +103,10 @@ function divSelectMe()
 
 function selectMe()
 {
-    $('#' + guid).click(function(){
+    $('#' + selectedElementTwo).click(function(){
         $(this).toggleClass('selectedText');
        
-        if($('#' + guid).hasClass('selectedText'))
+        if($('#' + selectedElementTwo).hasClass('selectedText'))
         {
             $(this).draggable({ disabled: false });
         }
@@ -157,7 +159,7 @@ function createADiv()
 
 	editorSpace.appendChild(div);
 	
-	//Who am I methods
+	//Element identify function
 	$('.createdDiv').hover(function() {
 	   selectedElement = $(this).attr('id'); 
 	});
@@ -210,7 +212,7 @@ function createAPara()
     editorSpace.appendChild(paragraph);
     
     $('.regPara').hover(function() {
-	   selectedElement = $(this).attr('id'); 
+	   selectedElementTwo = $(this).attr('id'); 
 	});
     
     selectMe();
