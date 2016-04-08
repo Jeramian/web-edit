@@ -160,7 +160,7 @@ function createADiv()
 	editorSpace.appendChild(div);
 	
 	//Element identify function
-	$('.createdDiv').hover(function() {
+	$('.createdDiv').mouseover(function() {
 	   selectedElement = $(this).attr('id'); 
 	});
 
@@ -211,7 +211,7 @@ function createAPara()
 
     editorSpace.appendChild(paragraph);
     
-    $('.regPara').hover(function() {
+    $('.regPara').mouseover(function() {
 	   selectedElementTwo = $(this).attr('id'); 
 	});
     
