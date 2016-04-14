@@ -64,11 +64,6 @@ var divELement;
 var guid;
 var elementType;
 
-//Selector dependant variable DND
-//Selected Element two is for every element exept for divs, they use the fist selected element variable.
-var selectedElement;
-var selectedElementTwo;
-
 $('#' + selectedElement).draggable({ disabled: true });
 $('#' + selectedElement).resizable({ disabled: true});
 $('#' + selectedElementTwo).draggable({ disabled: true });
@@ -99,6 +94,11 @@ function divSelectMe()
             $(this).resizable({ disabled: true });
         }
     });
+}
+
+function divGetSelected()
+{
+    
 }
 
 function selectMe()
@@ -158,11 +158,6 @@ function createADiv()
 	}
 
 	editorSpace.appendChild(div);
-	
-	//Element identify function
-	$('.createdDiv').mouseover(function() {
-	   selectedElement = $(this).attr('id'); 
-	});
 
     divSelectMe();
 }
@@ -226,18 +221,5 @@ function runEm()
 
 //TESTING\\
 
-//Even with the trigger on, the event does not fire.
-function secondaryMenuTST()
-{
-    addDiv.addEventListener("dblclick", function(){alert('Working!');});
-}
+var fetchedId;
 
-//this function will be able to track the mouse and detect what object is being hovered at the time. This will then, when clicked give the element functionality.
-function someFunction()
-{
-    alert("Hi there");
-}
-function whoAmI()
-{
-    $('.createdDiv').mouseenter(someFunction());
-}
