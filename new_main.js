@@ -94,17 +94,11 @@ function divGetId()
 }
 
 //The error is happening somewhere in this function, it may need to be completly re-written.
+//When code that evaluates to false is used, no error message is created.
 function divSelected()
 {
     $(selectedDivId).click(function() {
-        if(selectedDivId != null)
-        {
-            $(selectedDivId).toggleClass('selected');
-        }
-        else
-        {
-            throw errorCode1;
-        }
+        alert('foo');
     });
 }
 
