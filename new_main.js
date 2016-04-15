@@ -63,6 +63,9 @@ var layer;
 var divELement;
 var guid;
 var elementType;
+var selectedDivId;
+var selectedElement;
+var selectedElementTwo;
 
 $('#' + selectedElement).draggable({ disabled: true });
 $('#' + selectedElement).resizable({ disabled: true});
@@ -76,6 +79,33 @@ function generateId()
     }
 
     guid = (S4() + S4() + "-" + S4() + "-4" + S4().substr(0,3) + "-" + S4() + "-" + S4() + S4() + S4()).toLowerCase();
+}
+
+//This function does work to set the value of the selection variable.
+function divGetId()
+{
+    $('.createdDiv').mouseenter(function() {
+        selectedDivId = '#' + $(this).attr('id');
+    });
+    
+    $('.createdDiv').mouseleave(function() {
+       selectedDivId = null; 
+    });
+}
+
+//The error is happening somewhere in this function, it may need to be completly re-written.
+function divSelected()
+{
+    $(selectedDivId).click(function() {
+        if(selectedDivId != null)
+        {
+            $(selectedDivId).toggleClass('selected');
+        }
+        else
+        {
+            throw errorCode1;
+        }
+    });
 }
 
 function divSelectMe()
@@ -94,11 +124,6 @@ function divSelectMe()
             $(this).resizable({ disabled: true });
         }
     });
-}
-
-function divGetSelected()
-{
-    
 }
 
 function selectMe()
@@ -159,7 +184,9 @@ function createADiv()
 
 	editorSpace.appendChild(div);
 
-    divSelectMe();
+    divGetId();
+    divSelected();
+    //divSelectMe();
 }
 
 function createAPara()
