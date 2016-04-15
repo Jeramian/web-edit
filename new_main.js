@@ -81,9 +81,7 @@ function generateId()
     guid = (S4() + S4() + "-" + S4() + "-4" + S4().substr(0,3) + "-" + S4() + "-" + S4() + S4() + S4()).toLowerCase();
 }
 
-//This function does work to set the value of the selection variable.
-//This function now gives attribues to divs, another function has to be created for the other elements.
-//Once a second div is created, the original no longer has any functionality.
+//Once a second element is created, the original no longer has any functionality.
 function divGetId()
 {
     $('.createdDiv').mouseenter(function() {
