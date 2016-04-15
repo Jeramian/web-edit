@@ -9,7 +9,7 @@ NOTES:
 	3.Useablility and functionality go hand in hand!!
 	4.Be sure to change the names of buttons on Alpha, they would be very confusing to the user (they are in HTML terms).
     5.Need to find a way to reduce the amount of functions going on there before we move things over to the react platform
-        the reality is all these functions having to be loaded by the page WILL slow it down, even though they do not all fire at once it is still a hastle.
+        - the reality is all these functions having to be loaded by the page WILL slow it down, even though they do not all fire at once it is still a hastle.
 
 NEEDS:
 	*menu bar functionality !PHP!
@@ -48,6 +48,7 @@ var addHeading2 = document.getElementById('add3.1');
 var addHeading3 = document.getElementById('add3.2');
 var addHeading4 = document.getElementById('add3.3');
 var addImage = document.getElementById('add4');
+var deleter = document.getElementById('delete1');
 
 //Main Editor Area\\
 var editorSpace = document.getElementById('editorArea');
@@ -64,12 +65,10 @@ var divELement;
 var guid;
 var elementType;
 var selectedDivId;
-var selectedElement;
-var selectedElementTwo;
 
-$('#' + selectedElement).draggable({ disabled: true });
-$('#' + selectedElement).resizable({ disabled: true});
-$('#' + selectedElementTwo).draggable({ disabled: true });
+$(selectedDivId).draggable({ disabled: true });
+$(selectedDivId).resizable({ disabled: true});
+//$('#' + selectedElementTwo).draggable({ disabled: true });
 
 function generateId()
 {
@@ -82,6 +81,8 @@ function generateId()
 }
 
 //This function does work to set the value of the selection variable.
+//This function now gives attribues to divs, another function has to be created for the other elements.
+//Once a second div is created, the original no longer has any functionality.
 function divGetId()
 {
     $('.createdDiv').mouseenter(function() {
@@ -89,52 +90,34 @@ function divGetId()
     });
     
     $('.createdDiv').mouseleave(function() {
-       selectedDivId = null; 
+       selectedDivId = null;
+    });
+
+    $('.createdDiv').click(function() {
+        if(selectedDivId != null)
+        {
+            $(selectedDivId).toggleClass('selected');
+            
+            if($(selectedDivId).hasClass('selected'))
+            {
+                $(this).draggable({ disabled: false });
+                $(this).resizable({ disabled: false });
+            }
+            else
+            {
+                $(this).draggable({ disabled: true });
+                $(this).resizable({ disabled: true });
+            }
+        }
+        else
+        {
+            throw errorCode1;
+        }
     });
 }
 
 //The error is happening somewhere in this function, it may need to be completly re-written.
 //When code that evaluates to false is used, no error message is created.
-function divSelected()
-{
-    $(selectedDivId).click(function() {
-        alert('foo');
-    });
-}
-
-function divSelectMe()
-{
-    $('#' + selectedElement).click(function(){
-        $(this).toggleClass('selected');
-       
-        if($('#' + selectedElement).hasClass('selected'))
-        {
-            $(this).draggable({ disabled: false });
-            $(this).resizable({ disabled: false });
-        }
-        else
-        {
-            $(this).draggable({ disabled: true });
-            $(this).resizable({ disabled: true });
-        }
-    });
-}
-
-function selectMe()
-{
-    $('#' + selectedElementTwo).click(function(){
-        $(this).toggleClass('selectedText');
-       
-        if($('#' + selectedElementTwo).hasClass('selectedText'))
-        {
-            $(this).draggable({ disabled: false });
-        }
-        else
-        {
-            $(this).draggable({ disabled: true });
-        }
-    });
-}
 
 function createADiv()
 {
@@ -179,8 +162,6 @@ function createADiv()
 	editorSpace.appendChild(div);
 
     divGetId();
-    divSelected();
-    //divSelectMe();
 }
 
 function createAPara()
@@ -230,8 +211,6 @@ function createAPara()
     $('.regPara').mouseover(function() {
 	   selectedElementTwo = $(this).attr('id'); 
 	});
-    
-    selectMe();
     
 }
 
