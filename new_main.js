@@ -23,11 +23,11 @@ NEEDS:
     *REQUIRMENTS DOCUMENT
     *Sub menu for each element to set properties.
         - Used for sizing and coloration of the element, EX: Text color or font size, Div color.
+    *create functions to pull an elements name from the element, to re-use a function
 
 BUGGS:
 	*cannot drag images
     *#19: Once another element is created, the first looses functionality as var guid is changed.
-    *#20: Elements using the selectedElement var, are not active until a second element is created
 */
 
 //Error codes\\
@@ -65,10 +65,11 @@ var divELement;
 var guid;
 var elementType;
 var selectedDivId;
+var selectedId;
 
 $(selectedDivId).draggable({ disabled: true });
 $(selectedDivId).resizable({ disabled: true});
-//$('#' + selectedElementTwo).draggable({ disabled: true });
+$(selectedId).draggable({ disabled: true });
 
 function generateId()
 {
@@ -116,8 +117,36 @@ function divGetId()
     });
 }
 
-//The error is happening somewhere in this function, it may need to be completly re-written.
-//When code that evaluates to false is used, no error message is created.
+function getId()
+{
+    $('.regPara').mouseenter(function() {
+       selectedId = '#' + $(this).attr('id');
+    });
+    
+    $('.regPara').mouseleave(function() {
+       selectedId = null; 
+    });
+    
+    $('.regPara').click(function() {
+       if(selectedId != null)
+       {
+           $(selectedId).toggleClass('selectedText');
+           
+           if($(selectedId).hasClass('selectedText'))
+           {
+               $(this).draggable({ disabled: false });
+           }
+           else
+           {
+               $(this).draggable({ disabled: true });
+           }
+       }
+       else
+       {
+           throw errorCode1;
+       }
+    });
+}
 
 function createADiv()
 {
@@ -208,9 +237,7 @@ function createAPara()
 
     editorSpace.appendChild(paragraph);
     
-    $('.regPara').mouseover(function() {
-	   selectedElementTwo = $(this).attr('id'); 
-	});
+    getId();
     
 }
 
