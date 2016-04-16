@@ -82,7 +82,7 @@ function generateId()
 }
 
 //Once a second element is created, the original no longer has any functionality.
-function divGetId()
+function getDivId()
 {
     $('.createdDiv').mouseenter(function() {
         selectedDivId = '#' + $(this).attr('id');
@@ -90,8 +90,22 @@ function divGetId()
     
     $('.createdDiv').mouseleave(function() {
        selectedDivId = null;
-    });
+    });   
+}
 
+function getParaId()
+{
+    $('.regPara').mouseenter(function() {
+       selectedId = '#' + $(this).attr('id');
+    });
+    
+    $('.regPara').mouseleave(function() {
+       selectedId = null; 
+    });
+}
+
+function divFunctions()
+{
     $('.createdDiv').click(function() {
         if(selectedDivId != null)
         {
@@ -115,16 +129,8 @@ function divGetId()
     });
 }
 
-function getId()
-{
-    $('.regPara').mouseenter(function() {
-       selectedId = '#' + $(this).attr('id');
-    });
-    
-    $('.regPara').mouseleave(function() {
-       selectedId = null; 
-    });
-    
+function paraFunctions()
+{   
     $('.regPara').click(function() {
        if(selectedId != null)
        {
@@ -188,7 +194,8 @@ function createADiv()
 
 	editorSpace.appendChild(div);
 
-    divGetId();
+    getDivId();
+    divFunctions();
 }
 
 function createAPara()
@@ -235,7 +242,8 @@ function createAPara()
 
     editorSpace.appendChild(paragraph);
     
-    getId();
+    getParaId();
+    paraFunctions();
     
 }
 
