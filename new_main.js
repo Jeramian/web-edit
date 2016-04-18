@@ -48,7 +48,7 @@ var addHeading2 = document.getElementById('add3.1');
 var addHeading3 = document.getElementById('add3.2');
 var addHeading4 = document.getElementById('add3.3');
 var addImage = document.getElementById('add4');
-var deleter = document.getElementById('delete1');
+var deleterButton = document.getElementById('delete1');
 
 //Main Editor Area\\
 var editorSpace = document.getElementById('editorArea');
@@ -150,6 +150,18 @@ function paraFunctions()
            throw errorCode1;
        }
     });
+}
+
+function deleter()
+{
+    $('#delete1').click(function() {
+        $('*').each(function() {
+           if($(this).hasClass('selected'))
+           {
+               alert('Hello');
+           }
+        });
+    })
 }
 
 function createADiv()
